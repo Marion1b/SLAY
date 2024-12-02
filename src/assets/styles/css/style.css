@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/* Import Hind font */
+@font-face {
+  font-family: "Hind";
+  src: url("../../fonts/hind/Hind-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hind";
+  src: url("../../fonts/hind/Hind-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hind";
+  src: url("../../fonts/hind/Hind-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hind";
+  src: url("../../fonts/hind/Hind-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hind";
+  src: url("../../fonts/hind/Hind-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+/* Import Vidaloka font */
+@font-face {
+  font-family: "Vidaloka";
+  src: url("../../fonts/vidaloka/Vidaloka-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Vars */
+/* Petits appareils (téléphones en mode paysage, 576px et plus) */
+/* Appareils moyens (tablettes, 768px et plus) */
+/* Appareils intermédiaires (entre tablettes et ordinateurs portables, 850px et plus) */
+/* Grands appareils (ordinateurs de bureau, 992px et plus) */
+/* Appareils larges (ordinateurs de bureau plus grands, 1100px et plus) */
+/* Très grands appareils (grands écrans d'ordinateurs, 1200px et plus) */
+/* Super grands écrans (1400px et plus) */
+/* Ultra grands écrans (1600px et plus) */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
