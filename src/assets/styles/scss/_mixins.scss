@@ -59,6 +59,7 @@
 /* Mobile */
 @mixin text-mobile($type, $weight, $color) {
     font-family: $hind;
+    color: $color;
 
     @if $type == "subtitle" {
         font-size: $--20px;
