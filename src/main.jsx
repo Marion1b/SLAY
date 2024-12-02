@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './assets/styles/css/style.css';
+import Header from './components/Header.jsx';
 import App from './pages/App.jsx'
 import Login from './pages/Login.jsx';
 import ModifyProfile from './pages/ModifyProfile.jsx';
@@ -14,6 +15,7 @@ import Slayder from './pages/Slayder.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Header />
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
