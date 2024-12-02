@@ -1,17 +1,18 @@
-@use "../style.scss" as style;
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
 
 .page-header{
     width: 100%;
     position: fixed;
     bottom: 0;
     padding: 10px 0;
-    background-color: style.$atomic-tangerine;
+    background-color: var.$atomic-tangerine;
     &-nav ul{
         list-style: none;
         display: flex;
         justify-content: space-around;
         a{
-            @include style.text-mobile("text-3", "semi-bold", style.$black);
+            @include mix.text-mobile("text-3", "semi-bold", var.$black);
             text-decoration: none;
             display: flex;
             flex-direction: column;

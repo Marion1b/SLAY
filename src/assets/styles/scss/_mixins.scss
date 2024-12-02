@@ -1,35 +1,37 @@
+@use "_vars.scss" as var;
+
 // HEADING STYLE
 /* Desktop */
 @mixin heading-desktop($type, $weight, $color) {
-    font-family: $vidaloka;
+    font-family: var.$vidaloka;
 
     @if $type == "title-1" {
-        font-size: $--48px;
+        font-size: var.$px48;
     }
 
     @if $type == "title-2" {
-        font-size: $--40px;
+        font-size: var.$px40;
     }
 
     @if $type == "title-3" {
-        font-size: $--32px;
+        font-size: var.$px32;
     }
 }
 
 /* Mobile */
 @mixin heading-mobile($type, $weight, $color) {
-    font-family: $vidaloka;
+    font-family: var.$vidaloka;
 
     @if $type == "title-1" {
-        font-size: $--36px;
+        font-size: var.$px36;
     }
 
     @if $type == "title-2" {
-        font-size: $--26px;
+        font-size: var.$px26;
     }
 
     @if $type == "title-3" {
-        font-size: $--22px;
+        font-size: var.$px22;
     }
 }
 
@@ -37,44 +39,44 @@
 // TEXT STYLE
 /* Desktop */
 @mixin text-desktop($type, $weight, $color) {
-    font-family: $hind;
+    font-family: var.$hind;
 
     @if $type == "subtitle" {
-        font-size: $--24px;
+        font-size: var.$px24;
     }
 
     @if $type == "text-1" {
-        font-size: $--16px;
+        font-size: var.$px16;
     }
 
     @if $type == "text-2" {
-        font-size: $--14px;
+        font-size: var.$px14;
     }
 
     @if $type == "text-3" {
-        font-size: $--12px;
+        font-size: var.$px12;
     }
 }
 
 /* Mobile */
 @mixin text-mobile($type, $weight, $color) {
-    font-family: $hind;
+    font-family: var.$hind;
     color: $color;
 
     @if $type == "subtitle" {
-        font-size: $--20px;
+        font-size: var.$px20;
     }
 
     @if $type == "text-1" {
-        font-size: $--14px;
+        font-size: var.$px14;
     }
 
     @if $type == "text-2" {
-        font-size: $--12px;
+        font-size: var.$px12;
     }
 
     @if $type == "text-3" {
-        font-size: $--10px;
+        font-size: var.$px10;
     }
 }
 

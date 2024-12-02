@@ -1,38 +1,38 @@
 // sass -w src/assets/styles/scss:src/assets/styles/css
-@import "_vars.scss";
-@import "_mixins.scss";
-@import "_reset.scss";
+@use "_vars.scss" as var;
+@use "_mixins.scss" as mix;
+@use "_reset.scss";
 
 h1 {
-    @include heading-mobile("title-1", normal, $black);
+    @include mix.heading-mobile("title-1", normal, var.$black);
 }
 
 h2 {
-    @include heading-mobile("title-2", normal, $black);
+    @include mix.heading-mobile("title-2", normal, var.$black);
 }
 
 h3 {
-    @include heading-mobile("title-3", normal, $black);
+    @include mix.heading-mobile("title-3", normal, var.$black);
 }
 
 .subtitle {
-    @include text-mobile("subtitle", normal, $black);
+    @include mix.text-mobile("subtitle", normal, var.$black);
 }
 
-@media #{$large} {
+@media #{var.$large} {
     h1 {
-        @include heading-desktop("title-1", normal, $black);
+        @include mix.heading-desktop("title-1", normal, var.$black);
     }
     
     h2 {
-        @include heading-desktop("title-2", normal, $black);
+        @include mix.heading-desktop("title-2", normal, var.$black);
     }
     
     h3 {
-        @include heading-desktop("title-3", normal, $black);
+        @include mix.heading-desktop("title-3", normal, var.$black);
     }
     
     .subtitle {
-        @include text-desktop("subtitle", normal, $black);
+        @include mix.text-desktop("subtitle", normal, var.$black);
     }
 }
