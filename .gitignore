@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# min.css
+src/assets/styles/css/style.min.css
