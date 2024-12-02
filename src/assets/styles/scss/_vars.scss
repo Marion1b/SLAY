@@ -1,0 +1,47 @@
+// COLORS
+$raisin-black:      #231F20;
+$onyx:              #3A3C40;
+$cadet-gray:        #94979E;
+$french-gray:       #BFC1C5;
+$isabelline :       #EEECE7;
+$seasalt:           #F8F7F5;
+
+$charcoal:          #324A5F;
+$emerald:           #06BA63;
+$dark-pastel-green: #20BF55;
+$rusty-red:         #DE3C4B;
+$bittersweet:       #EF6461;
+$atomic-tangerine:  #FF9B71;
+$sandy-brown:       #FCAF58;
+$xanthous:          #FAC05E;
+$fawn:              #F2B880;
+$peach:             #F4C095;
+$apricot:           #FFD5C2;
+$blanched-almond:   #FFE4D5;
+
+
+// RESPONSIVE
+
+// Petits appareils (téléphones en mode paysage, 576px et plus)
+$small: "only screen and (min-width: 576px)";
+
+// Appareils moyens (tablettes, 768px et plus)
+$medium: "only screen and (min-width: 768px)";
+
+// Appareils intermédiaires (entre tablettes et ordinateurs portables, 850px et plus)
+$medium-large: "only screen and (min-width: 850px)";
+
+// Grands appareils (ordinateurs de bureau, 992px et plus)
+$large: "only screen and (min-width: 992px)";
+
+// Appareils larges (ordinateurs de bureau plus grands, 1100px et plus)
+$larger: "only screen and (min-width: 1100px)";
+
+// Très grands appareils (grands écrans d'ordinateurs, 1200px et plus)
+$extra: "only screen and (min-width: 1200px)";
+
+// Super grands écrans (1400px et plus)
+$extra-large: "only screen and (min-width: 1400px)";
+
+// Ultra grands écrans (1600px et plus)
+$ultra: "only screen and (min-width: 1600px)";
