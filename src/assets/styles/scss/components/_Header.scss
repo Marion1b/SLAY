@@ -1,5 +1,23 @@
+@use "../style.scss" as style;
+
 .page-header{
-    &-nav{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0;
+    background-color: style.$atomic-tangerine;
+    &-nav ul{
         list-style: none;
+        display: flex;
+        justify-content: space-around;
+        a{
+            @include style.text-mobile("text-3", "semi-bold", style.$black);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
     }
 }

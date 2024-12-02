@@ -4,11 +4,12 @@ import searchImg from "../assets/images/Icons/Search.svg";
 import addImg from "../assets/images/Icons/Add.svg";
 import notifImg from "../assets/images/Icons/Notif.svg";
 import profileImg from "../assets/images/Icons/Profile.svg";
+import "../assets/styles/scss/components/_Header.scss";
 
 function Header() {
 return (
         <header className="page-header">
-            <nav className="page-nav">
+            <nav className="page-header-nav">
                 <ul>
                     <li><a href="/"><img src={homeImg} alt="icone page d'accueil" />Accueil</a></li>
                     <li><a href="/radar"><img src={radarImg} alt="icone page radar"/>Radar</a></li>
