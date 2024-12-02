@@ -46,6 +46,10 @@
 /* For extra-large devices, such as larger desktop monitors. */
 /* For very large devices, such as widescreen desktop monitors. */
 /* For ultra-wide devices, such as high-resolution or ultra-wide monitors. */
+/* Desktop */
+/* Mobile */
+/* Desktop */
+/* Mobile */
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -92,4 +96,43 @@ table {
 
 input {
   border-radius: 0;
+}
+
+h1 {
+  font-family: "Vidaloka", serif;
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-family: "Vidaloka", serif;
+  font-size: 1.625rem;
+}
+
+h3 {
+  font-family: "Vidaloka", serif;
+  font-size: 1.375rem;
+}
+
+.subtitle {
+  font-family: "Hind", sans-serif;
+  font-size: 1.25rem;
+}
+
+@media only screen and (min-width: 992px) {
+  h1 {
+    font-family: "Vidaloka", serif;
+    font-size: 3rem;
+  }
+  h2 {
+    font-family: "Vidaloka", serif;
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-family: "Vidaloka", serif;
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-family: "Hind", sans-serif;
+    font-size: 1.5rem;
+  }
 }

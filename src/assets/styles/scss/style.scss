@@ -2,3 +2,37 @@
 @import "_vars.scss";
 @import "_mixins.scss";
 @import "_reset.scss";
+
+h1 {
+    @include heading-mobile("title-1", normal, $black);
+}
+
+h2 {
+    @include heading-mobile("title-2", normal, $black);
+}
+
+h3 {
+    @include heading-mobile("title-3", normal, $black);
+}
+
+.subtitle {
+    @include text-mobile("subtitle", normal, $black);
+}
+
+@media #{$large} {
+    h1 {
+        @include heading-desktop("title-1", normal, $black);
+    }
+    
+    h2 {
+        @include heading-desktop("title-2", normal, $black);
+    }
+    
+    h3 {
+        @include heading-desktop("title-3", normal, $black);
+    }
+    
+    .subtitle {
+        @include text-desktop("subtitle", normal, $black);
+    }
+}
