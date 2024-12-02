@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Import Hind font */
 @font-face {
   font-family: "Hind";
@@ -38,14 +37,15 @@
   font-style: normal;
 }
 /* Vars */
-/* Petits appareils (téléphones en mode paysage, 576px et plus) */
-/* Appareils moyens (tablettes, 768px et plus) */
-/* Appareils intermédiaires (entre tablettes et ordinateurs portables, 850px et plus) */
-/* Grands appareils (ordinateurs de bureau, 992px et plus) */
-/* Appareils larges (ordinateurs de bureau plus grands, 1100px et plus) */
-/* Très grands appareils (grands écrans d'ordinateurs, 1200px et plus) */
-/* Super grands écrans (1400px et plus) */
-/* Ultra grands écrans (1600px et plus) */
+/* For very small devices, such as small smartphones. */
+/* For small devices, such as standard smartphones in portrait mode. */
+/* For medium-sized devices, like tablets in portrait mode. */
+/* For devices slightly larger than tablets, such as tablets in landscape mode or small laptops. */
+/* For large devices, such as standard laptops. */
+/* For slightly larger laptops or small desktop monitors. */
+/* For extra-large devices, such as larger desktop monitors. */
+/* For very large devices, such as widescreen desktop monitors. */
+/* For ultra-wide devices, such as high-resolution or ultra-wide monitors. */
 *, *:before, *:after {
   box-sizing: border-box;
 }
