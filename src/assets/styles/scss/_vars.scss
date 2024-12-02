@@ -1,16 +1,66 @@
+//FONTS
+/* Import Hind font */
+@font-face {
+    font-family: 'Hind';
+    src: url('../../fonts/hind/Hind-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hind';
+    src: url('../../fonts/hind/Hind-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hind';
+    src: url('../../fonts/hind/Hind-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hind';
+    src: url('../../fonts/hind/Hind-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hind';
+    src: url('../../fonts/hind/Hind-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Import Vidaloka font */
+@font-face {
+    font-family: 'Vidaloka';
+    src: url('../../fonts/vidaloka/Vidaloka-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Vars */
+$hind: 'Hind', sans-serif;
+$vidaloka: 'Vidaloka', serif;
+
+
 // COLORS
-$raisin-black:      #231F20;
+$black:             #231F20;
 $onyx:              #3A3C40;
 $cadet-gray:        #94979E;
 $french-gray:       #BFC1C5;
 $isabelline :       #EEECE7;
-$seasalt:           #F8F7F5;
+$white:             #F8F7F5;
 
 $charcoal:          #324A5F;
 $emerald:           #06BA63;
-$dark-pastel-green: #20BF55;
+$green:             #20BF55;
 $rusty-red:         #DE3C4B;
-$bittersweet:       #EF6461;
+$red:               #EF6461;
 $atomic-tangerine:  #FF9B71;
 $sandy-brown:       #FCAF58;
 $xanthous:          #FAC05E;
@@ -20,28 +70,57 @@ $apricot:           #FFD5C2;
 $blanched-almond:   #FFE4D5;
 
 
-// RESPONSIVE
+// SIZES
+$--10px: 0.625rem;  // 10px
+$--12px: 0.75rem;   // 12px
+$--14px: 0.875rem;  // 14px
+$--16px: 1rem;      // 16px
+$--20px: 1.25rem;   // 20px
+$--22px: 1.375rem;  // 22px
+$--24px: 1.5rem;    // 24px
+$--26px: 1.625rem;  // 26px
+$--32px: 2rem;      // 32px
+$--36px: 2.25rem;   // 36px
+$--40px: 2.5rem;    // 40px
+$--48px: 3rem;      // 48px
 
-// Petits appareils (téléphones en mode paysage, 576px et plus)
+
+// RADIUS
+$border-radius-sm: 8px;
+$border-radius-md: 16px;
+$border-radius-lg: 32px;
+
+
+// SHADOW
+$box-shadow-sm: -2px -2px 2px rgba(0, 0, 0, 0.2);
+$box-shadow-md: -4px -4px 4px rgba(0, 0, 0, 0.2);
+$box-shadow-lg: -8px -8px 16px rgba(0, 0, 0, 0.2);
+
+
+// RESPONSIVE
+/* For very small devices, such as small smartphones. */
+$extra-small: "only screen and (min-width: 480px)";
+
+/* For small devices, such as standard smartphones in portrait mode. */
 $small: "only screen and (min-width: 576px)";
 
-// Appareils moyens (tablettes, 768px et plus)
+/* For medium-sized devices, like tablets in portrait mode. */
 $medium: "only screen and (min-width: 768px)";
 
-// Appareils intermédiaires (entre tablettes et ordinateurs portables, 850px et plus)
+/* For devices slightly larger than tablets, such as tablets in landscape mode or small laptops. */
 $medium-large: "only screen and (min-width: 850px)";
 
-// Grands appareils (ordinateurs de bureau, 992px et plus)
+/* For large devices, such as standard laptops. */
 $large: "only screen and (min-width: 992px)";
 
-// Appareils larges (ordinateurs de bureau plus grands, 1100px et plus)
+/* For slightly larger laptops or small desktop monitors. */
 $larger: "only screen and (min-width: 1100px)";
 
-// Très grands appareils (grands écrans d'ordinateurs, 1200px et plus)
+/* For extra-large devices, such as larger desktop monitors. */
 $extra: "only screen and (min-width: 1200px)";
 
-// Super grands écrans (1400px et plus)
+/* For very large devices, such as widescreen desktop monitors. */
 $extra-large: "only screen and (min-width: 1400px)";
 
-// Ultra grands écrans (1600px et plus)
+/* For ultra-wide devices, such as high-resolution or ultra-wide monitors. */
 $ultra: "only screen and (min-width: 1600px)";

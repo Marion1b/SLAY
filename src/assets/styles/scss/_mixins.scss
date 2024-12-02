@@ -1,0 +1,97 @@
+// HEADING STYLE
+/* Desktop */
+@mixin heading-desktop($type, $weight, $color) {
+    font-family: $vidaloka;
+
+    @if $type == "title-1" {
+        font-size: $--48px;
+    }
+
+    @if $type == "title-2" {
+        font-size: $--40px;
+    }
+
+    @if $type == "title-3" {
+        font-size: $--32px;
+    }
+}
+
+/* Mobile */
+@mixin heading-mobile($type, $weight, $color) {
+    font-family: $vidaloka;
+
+    @if $type == "title-1" {
+        font-size: $--36px;
+    }
+
+    @if $type == "title-2" {
+        font-size: $--26px;
+    }
+
+    @if $type == "title-3" {
+        font-size: $--22px;
+    }
+}
+
+
+// TEXT STYLE
+/* Desktop */
+@mixin text-desktop($type, $weight, $color) {
+    font-family: $hind;
+
+    @if $type == "subtitle" {
+        font-size: $--24px;
+    }
+
+    @if $type == "text-1" {
+        font-size: $--16px;
+    }
+
+    @if $type == "text-2" {
+        font-size: $--14px;
+    }
+
+    @if $type == "text-3" {
+        font-size: $--12px;
+    }
+}
+
+/* Mobile */
+@mixin text-mobile($type, $weight, $color) {
+    font-family: $hind;
+
+    @if $type == "subtitle" {
+        font-size: $--20px;
+    }
+
+    @if $type == "text-1" {
+        font-size: $--14px;
+    }
+
+    @if $type == "text-2" {
+        font-size: $--12px;
+    }
+
+    @if $type == "text-3" {
+        font-size: $--10px;
+    }
+}
+
+
+// GRID
+@mixin grid($columns, $gap, $rows: auto) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-template-rows: $rows;
+    gap: $gap;
+}
+
+
+// FLEX
+@mixin flex($direction: row, $justify: center, $align: center, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+  }
