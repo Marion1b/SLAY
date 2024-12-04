@@ -1,0 +1,11 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.searchbar-form{
+    input{
+        border: var.$onyx 2px solid;
+        border-radius: var.$border-radius-lg;
+        padding: 8px 20px;
+        background-color: var.$white;
+    }
+}
