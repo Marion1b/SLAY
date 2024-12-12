@@ -3,15 +3,15 @@ import { createRoot } from 'react-dom/client'
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './assets/styles/scss/style.scss';
-import Header from './components/Header.jsx';
-import App from './pages/App.jsx'
-import Login from './pages/Login.jsx';
-import ModifyProfile from './pages/ModifyProfile.jsx';
-import Profile from './pages/Profile.jsx';
-import Radar from './pages/Radar.jsx';
-import Register from './pages/Register.jsx';
-import Search from './pages/Search.jsx';
-import Slayder from './pages/Slayder.jsx';
+import Header from './components/Header.tsx';
+import App from './pages/App.tsx'
+import Login from './pages/Login.tsx';
+import ModifyProfile from './pages/ModifyProfile.tsx';
+import Profile from './pages/Profile.tsx';
+import Radar from './pages/Radar.tsx';
+import Register from './pages/Register.tsx';
+import Search from './pages/Search.tsx';
+import Slayder from './pages/Slayder.tsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
