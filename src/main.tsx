@@ -13,20 +13,30 @@ import Register from './pages/Register.tsx';
 import Search from './pages/Search.tsx';
 import Slayder from './pages/Slayder.tsx';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Header />
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/connexion" element={<Login />} />
-        <Route path="/modifier-mon-profil" element={<ModifyProfile />} />
-        <Route path="/profil" element={<Profile />} />
-        <Route path="/radar" element={<Radar />} />
-        <Route path="/inscription" element={<Register />} />
-        <Route path="/recherche" element={<Search />} />
-        <Route path="/slayder" element={<Slayder />} />
-      </Routes>
-    </Router>
-  </StrictMode>,
-)
+function Root() {
+  return (
+    <StrictMode>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/connexion" element={<Login />} />
+          <Route path="/modifier-mon-profil" element={<ModifyProfile />} />
+          <Route path="/profil" element={<Profile />} />
+          <Route path="/radar" element={<Radar />} />
+          <Route path="/inscription" element={<Register />} />
+          <Route path="/recherche" element={<Search />} />
+          <Route path="/slayder" element={<Slayder />} />
+          <Route path="*" element={<div>Page Not Found</div>} />
+        </Routes>
+      </Router>
+    </StrictMode>
+  );
+}
+
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(<Root />);
+} else {
+  console.log("Root element not found");
+}
