@@ -15,8 +15,10 @@ function Header() {
             <nav className="page-header-nav">
                 <ul>
                 <li>
-                    <HomeIcon />
-                    <p>Accueil</p>
+                    <a href="./">
+                        <HomeIcon />
+                        <p>Accueil</p>
+                    </a>
                 </li>
                 {/** Pas dans la V1  
                 <li>
@@ -37,8 +39,10 @@ function Header() {
                 </li>
                 */}
                 <li>
-                    <ProfileIcon />
-                    <p>Profil</p>
+                    <a href="./connexion">
+                        <ProfileIcon />
+                        <p>Profil</p>
+                    </a>
                 </li>
                 </ul>
             </nav>
