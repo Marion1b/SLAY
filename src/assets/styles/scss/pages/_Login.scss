@@ -18,6 +18,18 @@
         @include mix.text-mobile(text-2);
         background: var.$atomic-tangerine-apricot;
         width: fit-content;
+        p{
+            text-align: center;
+            margin-top: 20px;
+            a{
+                color: var.$onyx;
+                font-weight: 800;
+                transition: all 200ms ease-in;
+                &:hover{
+                    color: var.$black;
+                }
+            }
+        }
     }
     &-fieldset{
         @include mix.flex(column, flex-start, flex-start);

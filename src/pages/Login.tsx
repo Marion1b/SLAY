@@ -14,6 +14,7 @@ function Login() {
                     <input type="password" id="password" name="password" required />
                 </div>
                 <button type="submit">Se connecter</button>
+                <p>Pas encore de compte ? <a href="./inscription">S'inscrire</a></p>
             </form>
         </main>
     )
