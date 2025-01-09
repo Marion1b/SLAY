@@ -1,3 +1,5 @@
+import "../assets/styles/scss/pages/_Login.scss";
+
 function Login() {
     return (
         <main className="login-page">
