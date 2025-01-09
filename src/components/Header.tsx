@@ -1,12 +1,6 @@
-/// <reference types="vite-plugin-svgr/client" />
-
 import "../assets/styles/scss/components/_Header.scss";
-import HomeIcon from "../assets/images/icons/Home.svg?react";
-import RadarIcon from "../assets/images/icons/Radar.svg?react";
-import SearchIcon from "../assets/images/icons/Search.svg?react";
-import SlayderIcon from "../assets/images/icons/Add.svg?react";
-import NotificationIcon from "../assets/images/icons/Notif.svg?react";
-import ProfileIcon from "../assets/images/icons/Profile.svg?react";
+import { HomeIcon, NotificationIcon, ProfileIcon, RadarIcon, SearchIcon, SlayderIcon} from '../utils/svgComponents';
+
 
 function Header() {
     return (
