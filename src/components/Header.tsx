@@ -11,12 +11,14 @@ import ProfileIcon from "../assets/images/icons/Profile.svg?react";
 function Header() {
     return (
         <header className="page-header">
-            <nav>
+            <p className="page-header-logo">SLAY</p>
+            <nav className="page-header-nav">
                 <ul>
                 <li>
                     <HomeIcon />
                     <p>Accueil</p>
                 </li>
+                {/** Pas dans la V1  
                 <li>
                     <RadarIcon />
                     <p>Radar</p>
@@ -33,6 +35,7 @@ function Header() {
                     <NotificationIcon />
                     <p>Notifs</p>
                 </li>
+                */}
                 <li>
                     <ProfileIcon />
                     <p>Profil</p>
