@@ -1,10 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Global Styles
 import './assets/styles/scss/style.scss';
+
+// Components
 import Header from './components/Header.tsx';
-import App from './pages/App.tsx'
+
+// Pages
+import App from './pages/App.tsx';
 import Login from './pages/Login.tsx';
 import ModifyProfile from './pages/ModifyProfile.tsx';
 import Profile from './pages/Profile.tsx';
@@ -38,5 +43,5 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   createRoot(rootElement).render(<Root />);
 } else {
-  console.log("Root element not found");
+  console.error('Root element not found');
 }
