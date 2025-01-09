@@ -1,3 +1,5 @@
+import "../assets/styles/scss/pages/_Register.scss";
+
 function Register() {
     return (
         <main className="register-page">
@@ -7,7 +9,7 @@ function Register() {
                     <label htmlFor="email">Adresse mail : </label>
                     <input type="email" id="email" name="email" required />
                 </div>
-                <div className="username-page-fieldset">
+                <div className="register-page-fieldset">
                     <label htmlFor="username">Pseudo : </label>
                     <input type="text" id="username" name="username" required />
                 </div>
@@ -20,7 +22,7 @@ function Register() {
                     <input type="password" id="confirm-password" name="confirm-password" required />
                 </div>
                 <button type="submit">Se connecter</button>
-                <p>Pas encore de compte ? <a href="./inscription">S'inscrire</a></p>
+                <p>Déjà un compte ? <a href="./connexion">Se connecter</a></p>
             </form>
         </main>
     )

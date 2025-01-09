@@ -1,7 +1,7 @@
 @use "../_vars.scss" as var;
 @use '../_mixins.scss' as mix;
 
-.login-page{
+.register-page{
     width: 100%;
     height: 90vh;
     color: var.$black;
@@ -11,6 +11,7 @@
     }
     form{
         @include mix.register-login-form();
+        margin-top: 50px 
     }
     &-fieldset{
         @include mix.register-login-fieldset();
