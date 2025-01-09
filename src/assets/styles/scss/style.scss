@@ -2,6 +2,10 @@
 @use "_mixins.scss" as mix;
 @use "_reset.scss";
 
+body{
+    background: var.$blanched-almond-white;
+}
+
 h1 {
     @include mix.heading-mobile("title-1", normal, var.$black);
 }

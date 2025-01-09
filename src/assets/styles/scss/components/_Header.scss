@@ -13,7 +13,7 @@
     &-nav ul{
         list-style: none;
         @include mix.flex(row, space-around);
-        li{
+        a{
             @include mix.text-mobile("text-3", "semi-bold", var.$black);
             text-decoration: none;
             @include mix.flex(column, center, center);
@@ -37,7 +37,7 @@
             }
             ul{
                 @include mix.flex(row, space-between, center);
-                li{
+                a{
                     @include mix.text-desktop("text-3", "semi-bold", var.$black);
                     @include mix.flex();
                     gap: 10px;
