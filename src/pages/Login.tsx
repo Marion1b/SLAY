@@ -3,7 +3,7 @@ import "../assets/styles/scss/pages/_Login.scss";
 function Login() {
     return (
         <main className="login-page">
-            <h1>CONNEXION</h1>
+            <h1>Connexion</h1>
             <form action="" method="post">
                 <div className="login-page-fieldset">
                     <label htmlFor="email">Adresse mail : </label>

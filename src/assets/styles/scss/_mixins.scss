@@ -59,7 +59,7 @@
 }
 
 /* Mobile */
-@mixin text-mobile($type, $weight, $color) {
+@mixin text-mobile($type, $weight:0, $color:var.$black) {
     font-family: var.$hind;
     color: $color;
 

@@ -69,6 +69,10 @@ $peach:             #F4C095;
 $apricot:           #FFD5C2;
 $blanched-almond:   #FFE4D5;
 
+// Gradient
+$blanched-almond-white : linear-gradient($blanched-almond, $white);
+$atomic-tangerine-apricot: linear-gradient($atomic-tangerine, $apricot);
+
 
 // SIZES
 $px10: 0.625rem;  // 10px
