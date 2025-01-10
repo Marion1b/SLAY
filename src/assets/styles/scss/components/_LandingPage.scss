@@ -28,7 +28,6 @@
             line-height: 2.6rem;
         }
         div{
-            text-align: center;
             p{
                 @include mix.text-desktop("text-3", "regular", var.$black);
             }
