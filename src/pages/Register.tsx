@@ -44,13 +44,13 @@ function Register() {
                     <label htmlFor="username">Pseudo : </label>
                     <input type="text" id="username" name="username" required />
                 </div>
-                <div className="register-page-fieldset">
+                <div className={`register-page-fieldset register-page-fieldset-password-${passwordCorrect}`}>
                     <label htmlFor="password">Mot de passe : </label>
-                    <input type="password" id="password" name="password" className={`register-page-fieldset-password-${passwordCorrect}`} onChange={(e) => assignPasswords(setPassword1, e)} required />
+                    <input type="password" id="password" name="password" className={`register-page-input-password-${passwordCorrect}`} onChange={(e) => assignPasswords(setPassword1, e)} required />
                 </div>
-                <div className="register-page-fieldset">
+                <div className={`register-page-fieldset register-page-fieldset-password-${passwordSame}`}>
                     <label htmlFor="confirm-password">Confirmer le mot de passe : </label>
-                    <input type="password" id="confirm-password" name="confirm-password" className={`register-page-fieldset-password-${passwordSame}`} onChange={(e) => assignPasswords(setPassword2, e)} required />
+                    <input type="password" id="confirm-password" name="confirm-password" className={`register-page-input-password-${passwordSame}`} onChange={(e) => assignPasswords(setPassword2, e)} required />
                 </div>
                 <button type="submit">S'inscrire</button>
                 <p>Déjà un compte ? <a href="./connexion">Se connecter</a></p>
