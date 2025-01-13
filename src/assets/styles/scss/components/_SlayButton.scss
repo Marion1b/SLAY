@@ -2,7 +2,9 @@
 @use '../_mixins.scss' as mix;
 
 .slay-button{
-    background-color: var.$atomic-tangerine;
+    background: linear-gradient(to right, var.$atomic-tangerine 50%, var.$xanthous 50%);
+    background-size: 200%;
+    background-position: left;
     @include mix.text-mobile(text-2);
     font-weight: 600; //à mettre dans la mixin text.mobile 
     display: flex;
@@ -26,6 +28,8 @@
         }
     }
     &:hover{
-        background-color: var.$xanthous;
+        background-position: right;
+        transform: translateX(-2px);
+        box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
     }
 }
