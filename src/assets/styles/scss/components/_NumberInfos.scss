@@ -1,0 +1,18 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.numbers-infos{
+    ul{
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        color: var.$black;
+        max-width: 180px;
+        line-height: 15px;
+        .numbers-infos-number{
+            @include mix.heading-mobile("title-3", 400, var.$black);
+        }
+        .numbers-infos-label{
+            @include mix.text-mobile("text-3", 600, var.$black);        }
+    }
+}
