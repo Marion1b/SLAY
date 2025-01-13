@@ -1,0 +1,15 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.profile-biography {
+    width: 180px;
+    p{
+        @include mix.text-mobile("text-3", var.$regular, var.$black);
+    }
+    @media #{var.$medium-large} {
+        width: 300px;
+        p{
+            @include mix.text-desktop("text-2", var.$regular, var.$black);
+        }
+    }
+}
