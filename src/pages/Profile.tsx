@@ -1,7 +1,10 @@
+import SlayButton from "../components/SlayButton"
+
 function Profile() {
     return (
         <>
-        <h1>PROFIL</h1>
+            <h1>Profil</h1>
+            <SlayButton slay={false}/>
         </>
     )
 }

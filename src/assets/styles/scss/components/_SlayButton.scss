@@ -1,0 +1,31 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.slay-button{
+    background-color: var.$atomic-tangerine;
+    @include mix.text-mobile(text-2);
+    font-weight: 600; //à mettre dans la mixin text.mobile 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 15px;
+    border-radius: 15px;
+    border: 1px solid var.$black;
+    cursor: pointer;
+    transition: all 300ms ease-in;
+    svg{
+        width: 15px;
+        height: 15px;
+    }
+    @media #{var.$larger} {
+        @include mix.text-desktop(text-2); //ajouter font-weight
+        svg{
+            width: 18px;
+            height: 18px;
+        }
+    }
+    &:hover{
+        background-color: var.$xanthous;
+    }
+}

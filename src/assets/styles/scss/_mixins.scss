@@ -38,8 +38,9 @@
 
 // TEXT STYLE
 /* Desktop */
-@mixin text-desktop($type, $weight, $color) {
+@mixin text-desktop($type, $weight:0, $color:var.$black) {
     font-family: var.$hind;
+    color: $color;
 
     @if $type == "subtitle" {
         font-size: var.$px24;
