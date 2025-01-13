@@ -114,6 +114,7 @@
     background: var.$atomic-tangerine-apricot;
     width: fit-content;
     margin-bottom: 250px;
+    @include flex(column);
     p{
         text-align: center;
         margin-top: 20px;
@@ -125,6 +126,9 @@
                 color: var.$black;
             }
         }
+    }
+    @media #{var.$medium}{
+        @include text-desktop(text-2);
     }
 }
 
