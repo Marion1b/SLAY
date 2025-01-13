@@ -15,7 +15,7 @@ function SlayButton(props: WrapperProps){
 
     if(slay){
         return(
-            <button className="slay-button slay-button-remove" onClick={() =>{setSlay(!slay); console.log(slay)}}>
+            <button className="slay-button slay-button-remove" onClick={() =>setSlay(!slay)}>
                 Unslay <UserRemove />
             </button>
         )
