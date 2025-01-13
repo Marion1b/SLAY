@@ -1,7 +1,9 @@
+import LandingPage from "../components/LandingPage";
+
 function App() {
   return (
     <>
-      <h1>SLAY</h1>
+      <LandingPage />
     </>
   )
 }
