@@ -97,4 +97,63 @@
     justify-content: $justify;
     align-items: $align;
     flex-wrap: $wrap;
-  }
+}
+
+//LOGIN AND REGISTER FORMS
+@mixin register-login-form(){
+    margin: auto;
+    margin-top: 100px;
+    padding: 40px;
+    border-radius: var.$border-radius-md;
+    box-shadow: var.$box-shadow-md;
+    @include text-mobile(text-2);
+    background: var.$atomic-tangerine-apricot;
+    width: fit-content;
+    margin-bottom: 250px;
+    p{
+        text-align: center;
+        margin-top: 20px;
+        a{
+            color: var.$onyx;
+            font-weight: 800;
+            transition: all 200ms ease-in;
+            &:hover{
+                color: var.$black;
+            }
+        }
+    }
+}
+
+@mixin register-login-fieldset(){
+    @include flex(column, flex-start, flex-start);
+    margin-bottom: 25px;
+    label{
+        margin-bottom: 8px;
+    }
+    input{
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid var.$black;
+        font-family: var.$hind;
+        &:focus{
+            outline: none;
+            border-bottom: 2px solid var.$black;
+        }
+    }
+}
+
+@mixin register-login-button(){
+    padding: 5px 10px;
+    width: 160px;
+    background-color: transparent;
+    border: 1px solid var.$black;
+    border-radius: var.$border-radius-sm;
+    font-family: var.$hind;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+    &:hover{
+        background-color: var.$atomic-tangerine;
+        transform: translate(2px, 2px);
+        box-shadow: var.$box-shadow-sm;
+    }
+}

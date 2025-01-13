@@ -1,0 +1,40 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.register-page{
+    color: var.$black;
+    h1{
+        margin-top: 50px;
+        text-align: center;
+    }
+    form{
+        @include mix.register-login-form();
+        margin-top: 50px;
+        margin-bottom: 150px
+    }
+    &-fieldset{
+        @include mix.register-login-fieldset();
+        &-password-incorrect::after{
+            content: "Le mot de passe doit contenir 12 caractères minimum, dont une minuscule, une majuscule, un chiffre et un caractère spécial.";
+            max-width: 160px;
+            margin-top: 5px;
+        }
+        &-password-no-same::after{
+            content: "Les mots de passe ne correspondent pas.";
+            max-width: 160px;
+            margin-top: 5px;
+        }
+    }
+    &-input-password-incorrect, .register-page-input-password-no-same{
+        color: var.$rusty-red;
+        outline: 2px solid var.$rusty-red;
+        border-radius: var.$border-radius-sm;
+        &:focus{
+            border-radius: 0;
+            color: var.$black;
+        }
+    }
+    button{
+        @include mix.register-login-button();
+    }
+}
