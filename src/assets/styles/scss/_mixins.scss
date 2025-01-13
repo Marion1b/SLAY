@@ -33,13 +33,16 @@
     @if $type == "title-3" {
         font-size: var.$px22;
     }
+
 }
 
 
 // TEXT STYLE
 /* Desktop */
-@mixin text-desktop($type, $weight, $color) {
+@mixin text-desktop($type, $weight: 0, $color) {
     font-family: var.$hind;
+    font-weight: $weight;
+    color: $color;
 
     @if $type == "subtitle" {
         font-size: var.$px24;
@@ -59,8 +62,9 @@
 }
 
 /* Mobile */
-@mixin text-mobile($type, $weight:0, $color:var.$black) {
+@mixin text-mobile($type, $weight: 0, $color:var.$black) {
     font-family: var.$hind;
+    font-weight: $weight;
     color: $color;
 
     @if $type == "subtitle" {
