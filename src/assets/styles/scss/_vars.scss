@@ -69,10 +69,16 @@ $peach:             #F4C095;
 $apricot:           #FFD5C2;
 $blanched-almond:   #FFE4D5;
 
-// Gradient
+// GRADIENTS
 $blanched-almond-white : linear-gradient($blanched-almond, $white);
 $atomic-tangerine-apricot: linear-gradient($atomic-tangerine, $apricot);
 
+// FONT WEIGHT
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
 
 // SIZES
 $px10: 0.625rem;  // 10px

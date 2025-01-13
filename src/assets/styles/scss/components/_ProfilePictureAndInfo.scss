@@ -1,0 +1,54 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.profile-picture-and-info{
+    height: 135px;
+    width: 150px;
+    padding-top: .5rem;
+    @include mix.flex(column, space-around, center);
+    img {
+        height: 75px;
+        width: 75px;
+        border-radius: 50%;
+    }
+    .profile-name{
+        @include mix.text-mobile("text-2", var.$semi-bold, var.$black);
+        padding-top: .2rem;
+    }
+    .profile-location{
+        @include mix.text-mobile("text-3", var.$semi-bold, var.$black);
+        padding-top: .1rem;
+    }
+    .profile-pronouns{
+        @include mix.text-mobile("text-3", var.$regular, var.$black);
+    }
+    @media #{var.$small}{
+        height: 170px;
+        width: 160px;
+        padding-top: .7rem;
+        img {
+            height: 95px;
+            width: 95px;
+        }
+    }
+    @media #{var.$medium-large} {
+        height: 210px;
+        width: 175px;
+        padding-top: .8rem;        img {
+            height: 115px;
+            width: 115px;
+            border-radius: 50%;
+        }
+        .profile-name{
+            @include mix.text-desktop("text-1", var.$semi-bold, var.$black);
+            padding-top: .1rem;
+        }
+        .profile-location{
+            @include mix.text-desktop("text-2", var.$semi-bold, var.$black);
+            padding-top: .3rem;
+        }
+        .profile-pronouns{
+            @include mix.text-desktop("text-2", var.$regular, var.$black);
+        }
+    }
+}

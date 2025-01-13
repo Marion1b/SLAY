@@ -4,7 +4,7 @@
 .landing-page{
     height: 30rem;
     @include mix.flex(column, space-between, center);
-    background: linear-gradient(var.$atomic-tangerine, var.$apricot);
+    background: var.$atomic-tangerine-apricot;
     h1{
         margin-top: 8rem;
     }
@@ -15,7 +15,7 @@
     div{
         text-align: center;
         p{
-            @include mix.text-mobile("text-3");
+            @include mix.text-mobile("text-3")
         }
     }
     @media #{var.$medium-large}{
@@ -29,7 +29,7 @@
         }
         div{
             p{
-                @include mix.text-desktop("text-3", "regular", var.$black);
+                @include mix.text-desktop("text-3", var.$regular, var.$black);
             }
         }
     }
