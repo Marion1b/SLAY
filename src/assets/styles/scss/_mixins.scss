@@ -39,7 +39,7 @@
 
 // TEXT STYLE
 /* Desktop */
-@mixin text-desktop($type, $weight: 0, $color) {
+@mixin text-desktop($type, $weight:0, $color:var.$black) {
     font-family: var.$hind;
     font-weight: $weight;
     color: $color;
