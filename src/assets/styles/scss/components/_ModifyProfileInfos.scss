@@ -3,6 +3,7 @@
 
 .modify-profile-infos{
     padding-top: .8rem;
+    max-width: 400px;
     img {
         height: 130px;
         width: 130px;
@@ -44,33 +45,7 @@
     }
 
     @media #{var.$small}{
-        height: 170px;
-        width: 160px;
-        padding-top: 1rem;
-        img {
-            height: 95px;
-            width: 95px;
-        }
     }
     @media #{var.$medium-large} {
-        height: 210px;
-        width: 175px;
-        padding-top: 1.2rem;        
-        img {
-            height: 115px;
-            width: 115px;
-            border-radius: 50%;
-        }
-        .profile-name{
-            @include mix.text-desktop("text-1", var.$semi-bold, var.$black);
-            padding-top: 1rem;
-        }
-        .profile-location{
-            @include mix.text-desktop("text-2", var.$semi-bold, var.$black);
-            padding-top: .3rem;
-        }
-        .profile-pronouns{
-            @include mix.text-desktop("text-2", var.$regular, var.$black);
-        }
     }
 }

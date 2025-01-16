@@ -22,7 +22,7 @@ function ModifyProfileForm(props: WrapperProps) {
                 <Edit />
                 <p>{props.mail}</p>
             </div>
-            <p>Mot de passe :</p>
+            <p className="password">Mot de passe :</p>
             <div className="modify-profile-edit-info-container">
                 <Edit />
                 <p>{props.password}</p>
