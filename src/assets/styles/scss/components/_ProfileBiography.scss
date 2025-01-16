@@ -2,7 +2,6 @@
 @use '../_mixins.scss' as mix;
 
 .profile-biography {
-    width: 180px;
     p{
         @include mix.text-mobile("text-3", var.$regular, var.$black);
     }
@@ -12,4 +11,8 @@
             @include mix.text-desktop("text-2", var.$regular, var.$black);
         }
     }
+}
+
+.profile-biography-profile {
+    width: 180px;
 }

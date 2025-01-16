@@ -2,5 +2,16 @@
 @use '../_mixins.scss' as mix;
 
 .modify-profile {
-    
+    .modify-profile-profile-section{
+        height: 300px;
+        padding: 0 10%;
+        background: var.$sandy-brown-xanthous;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        .profile-biography-modify-profile {
+            
+        }
+    }
+
 }

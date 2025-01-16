@@ -1,0 +1,76 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.modify-profile-infos{
+    padding-top: .8rem;
+    img {
+        height: 130px;
+        width: 130px;
+        border-radius: 50%;
+    }
+    > svg {
+        background-color: var.$blanched-almond;
+        cursor: pointer;
+
+    }
+    .modify-profile-edit-info-container {
+        @include mix.flex(row, space-between, flex-start);
+        & div {
+            .profile-name{
+                @include mix.text-mobile("text-1", var.$bold, var.$black);
+                margin-top: 1.3rem;
+            }
+            .modify-profile-location-container {
+                @include mix.flex(row, flex-start, center);
+                >svg {
+                    width: 14px;
+                    margin-right: .4rem;
+                    cursor: pointer;
+                }
+                .profile-location{
+                    @include mix.text-mobile("text-2", var.$regular, var.$black);
+                    margin-top: .3rem;
+                }
+            } 
+            .profile-pronouns{
+                @include mix.text-mobile("text-2", var.$regular, var.$black);
+                margin-top: .2rem;
+            }
+        }
+    }
+    > p {
+        @include mix.text-mobile("text-2", var.$semi-bold, var.$black);
+        margin: 1.2rem 0 .2rem 0;
+    }
+
+    @media #{var.$small}{
+        height: 170px;
+        width: 160px;
+        padding-top: 1rem;
+        img {
+            height: 95px;
+            width: 95px;
+        }
+    }
+    @media #{var.$medium-large} {
+        height: 210px;
+        width: 175px;
+        padding-top: 1.2rem;        
+        img {
+            height: 115px;
+            width: 115px;
+            border-radius: 50%;
+        }
+        .profile-name{
+            @include mix.text-desktop("text-1", var.$semi-bold, var.$black);
+            padding-top: 1rem;
+        }
+        .profile-location{
+            @include mix.text-desktop("text-2", var.$semi-bold, var.$black);
+            padding-top: .3rem;
+        }
+        .profile-pronouns{
+            @include mix.text-desktop("text-2", var.$regular, var.$black);
+        }
+    }
+}

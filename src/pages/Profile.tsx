@@ -14,7 +14,7 @@ function Profile() {
             </div>
             <div className="profile-section-right">
                 <NumbersInfos reposts={4500} slayers={3200} suivis={439} />
-                <ProfileBiography />
+                <ProfileBiography className="profile-biography-profile"/>
                 <SlayButton slay={false} />
             </div>
         </section>
