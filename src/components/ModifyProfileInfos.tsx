@@ -2,6 +2,8 @@ import "../assets/styles/scss/components/_ModifyProfileInfos.scss"
 import ProfileBiography from "../components/ProfileBiography";
 import Edit from "../assets/images/icons/Edit.svg?react";
 import PinPoint from "../assets/images/icons/PinPoint.svg?react";
+import ModalModifyProfile from "../components/ModalModifyProfile";
+import { useState } from "react";
 
 interface WrapperProps {
     name: string;
@@ -11,6 +13,7 @@ interface WrapperProps {
 }
 
 function ModifyProfileInfos(props: WrapperProps) {
+    const [isOpenUserInfos, setIsOpenUserInfos] = useState<boolean>(false);
     return (
         <section className="modify-profile-infos">
             <img src="./src/assets/images/test/Antoine_Daniel.jpg" alt="Photo de profil de Antoine Daniel" />
@@ -23,11 +26,13 @@ function ModifyProfileInfos(props: WrapperProps) {
                             <p className="profile-location">{props.city}, {props.country}</p>
                         </div>
                     </div>
-                    <Edit />
+                    <button className="edit-button" onClick={()=>setIsOpenUserInfos(true)}><Edit /></button>
                 </div>
                 <p>Biographie</p>
                 <ProfileBiography className="profile-biography-modify-profile"/>
             </div>
+
+            {isOpenUserInfos && <ModalModifyProfile name="user-infos" value="" setIsOpen={setIsOpenUserInfos} />}
         </section>
     )
 }

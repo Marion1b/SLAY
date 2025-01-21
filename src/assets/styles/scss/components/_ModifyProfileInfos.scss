@@ -9,6 +9,11 @@
         width: 130px;
         border-radius: 50%;
     }
+    .edit-button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
     .modify-profile-edit-info-container {
         @include mix.flex(row, space-between, flex-start);
         > svg {

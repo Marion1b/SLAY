@@ -12,6 +12,11 @@
     }
     .modify-profile-edit-info-container {
         @include mix.flex(row, flex-start, center);
+        .edit-button{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
         svg {
             width: 15px;
             cursor: pointer;
