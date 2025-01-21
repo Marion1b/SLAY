@@ -4,6 +4,7 @@
 .page-header{
     width: 100%;
     position: fixed;
+    z-index: 100;
     bottom: 0;
     padding: 10px 0;
     background-color: var.$atomic-tangerine;

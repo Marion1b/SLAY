@@ -3,6 +3,7 @@ import ModifyProfileInfos from "../components/ModifyProfileInfos";
 import ModifyProfileForm from "../components/ModifyProfileForm";
 
 function ModifyProfile() {
+
     return (
         <section className="modify-profile">
             <h1>Modifier mon profil</h1>
@@ -12,8 +13,8 @@ function ModifyProfile() {
                 </section>
                 <ModifyProfileForm role="Utilisateur / utilisatrice" mail="antoine.daniel@gmail.com" password="***************"/>
             </section>
-        </section>
+            </section>
     )
 }
-  
+
 export default ModifyProfile

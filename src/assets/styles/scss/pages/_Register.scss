@@ -15,24 +15,14 @@
     &-fieldset{
         @include mix.register-login-fieldset();
         &-password-incorrect::after{
-            content: "Le mot de passe doit contenir 12 caractères minimum, dont une minuscule, une majuscule, un chiffre et un caractère spécial.";
-            max-width: 160px;
-            margin-top: 5px;
+            @include mix.password-incorrect("password-incorrect");
         }
         &-password-no-same::after{
-            content: "Les mots de passe ne correspondent pas.";
-            max-width: 160px;
-            margin-top: 5px;
+            @include mix.password-incorrect("password-no-same")
         }
     }
     &-input-password-incorrect, .register-page-input-password-no-same{
-        color: var.$rusty-red;
-        outline: 2px solid var.$rusty-red;
-        border-radius: var.$border-radius-sm;
-        &:focus{
-            border-radius: 0;
-            color: var.$black;
-        }
+        @include mix.style-error-password();
     }
     button{
         @include mix.register-login-button();

@@ -135,10 +135,12 @@
 @mixin register-login-fieldset(){
     @include flex(column, flex-start, flex-start);
     margin-bottom: 25px;
+    max-width: 160px;
+    line-height: 15px;
     label{
         margin-bottom: 8px;
     }
-    input{
+    input, select{
         background-color: transparent;
         border: none;
         border-bottom: 1px solid var.$black;
@@ -153,15 +155,44 @@
 @mixin register-login-button(){
     padding: 5px 10px;
     width: 160px;
-    background-color: transparent;
+    background-color: var.$atomic-tangerine;
     border: 1px solid var.$black;
     border-radius: var.$border-radius-sm;
     font-family: var.$hind;
     transition: all 200ms ease-in;
     cursor: pointer;
     &:hover{
-        background-color: var.$atomic-tangerine;
+        background-color: transparent;
         transform: translate(2px, 2px);
         box-shadow: var.$box-shadow-sm;
+    }
+}
+
+// Messages d'erreurs passwords
+
+@mixin password-incorrect($type){
+    max-width: 160px;
+    margin-top: 5px;
+    @if $type == "last-password-no-same"{
+        content: "Le mot de passe ne correspond pas au mot de passe actuel.";
+    }
+    @if $type == "password-incorrect"{
+        content: "Le mot de passe doit contenir 12 caractères minimum, dont une minuscule, une majuscule, un chiffre et un caractère spécial.";
+    }
+    @if $type == "password-no-same"{
+        content: "Les mots de passe ne correspondent pas.";
+    }
+    @if $type == "last-password-new-password-same"{
+        content: "Le nouveau mot de passe ne peut pas être le même que le mot de passe actuel.";
+    }
+}
+
+@mixin style-error-password(){
+    color: var.$rusty-red;
+    outline: 2px solid var.$rusty-red;
+    border-radius: var.$border-radius-sm;
+    &:focus{
+        border-radius: 0;
+        color: var.$black;
     }
 }
