@@ -1,15 +1,17 @@
 import "../assets/styles/scss/pages/_ModifyProfile.scss"
-import ProfilePictureAndInfo from "../components/ProfilePictureAndInfo";
-import ProfileBiography from "../components/ProfileBiography";
+import ModifyProfileInfos from "../components/ModifyProfileInfos";
 import ModifyProfileForm from "../components/ModifyProfileForm";
+
 function ModifyProfile() {
     return (
         <section className="modify-profile">
-            <h1>MODIFIER MON PROFIL</h1>
-            <ProfilePictureAndInfo name="Antoine Daniel" city="Montpellier" country="France" pronouns="il" />
-            <p>Biographie</p>
-            <ProfileBiography />
-            <ModifyProfileForm />
+            <h1>Modifier mon profil</h1>
+            <section className="modify-profile-form-container">
+                <section className="modify-profile-profile-section">
+                    <ModifyProfileInfos name="Antoine Daniel" city="Montpellier" country="France" pronouns="il" />
+                </section>
+                <ModifyProfileForm role="Utilisateur / utilisatrice" mail="antoine.daniel@gmail.com" password="***************"/>
+            </section>
         </section>
     )
 }
