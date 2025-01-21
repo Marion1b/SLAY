@@ -1,7 +1,6 @@
 import "../assets/styles/scss/components/_ProfileBiography.scss";
 
 interface WrapperProps {
-
     className: string
 }
 

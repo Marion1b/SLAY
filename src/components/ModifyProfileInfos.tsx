@@ -14,18 +14,20 @@ function ModifyProfileInfos(props: WrapperProps) {
     return (
         <section className="modify-profile-infos">
             <img src="./src/assets/images/test/Antoine_Daniel.jpg" alt="Photo de profil de Antoine Daniel" />
-            <div className="modify-profile-edit-info-container">
-                <div>
-                    <p className="profile-name">{props.name} ({props.pronouns})</p>
-                    <div className="modify-profile-location-container">
-                        <PinPoint />
-                        <p className="profile-location">{props.city}, {props.country}</p>
+            <div>
+                <div className="modify-profile-edit-info-container">
+                    <div>
+                        <p className="profile-name">{props.name} ({props.pronouns})</p>
+                        <div className="modify-profile-location-container">
+                            <PinPoint />
+                            <p className="profile-location">{props.city}, {props.country}</p>
+                        </div>
                     </div>
+                    <Edit />
                 </div>
-                <Edit />
+                <p>Biographie</p>
+                <ProfileBiography className="profile-biography-modify-profile"/>
             </div>
-            <p>Biographie</p>
-            <ProfileBiography className="profile-biography-modify-profile"/>
         </section>
     )
 }

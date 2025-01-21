@@ -8,10 +8,28 @@
         background: var.$sandy-brown-xanthous;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-
-        .profile-biography-modify-profile {
-           max-width: 280px; 
+    }
+    @media #{var.$extra-small} {
+        width: 90%;
+        max-width: 520px;
+        margin: 0 auto;
+        .modify-profile-form-container {
+            box-shadow: var.$box-shadow-md;
+            border-radius: 12px;
+        }
+        .modify-profile-profile-section {
+            height: 235px;
         }
     }
-
+    @media #{var.$medium-large} {
+        max-width: 660px;
+        margin: 0 auto;
+        .modify-profile-form-container {
+            box-shadow: var.$box-shadow-lg;
+            border-radius: 12px;
+        }
+        .modify-profile-profile-section {
+            height: 255px;
+        }
+    }
 }

@@ -6,10 +6,12 @@ function ModifyProfile() {
     return (
         <section className="modify-profile">
             <h1>Modifier mon profil</h1>
-            <section className="modify-profile-profile-section">
-                <ModifyProfileInfos name="Antoine Daniel" city="Montpellier" country="France" pronouns="il" />
+            <section className="modify-profile-form-container">
+                <section className="modify-profile-profile-section">
+                    <ModifyProfileInfos name="Antoine Daniel" city="Montpellier" country="France" pronouns="il" />
+                </section>
+                <ModifyProfileForm role="Utilisateur / utilisatrice" mail="antoine.daniel@gmail.com" password="***************"/>
             </section>
-            <ModifyProfileForm role="Utilisateur / utilisatrice" mail="antoine.daniel@gmail.com" password="***************"/>
         </section>
     )
 }

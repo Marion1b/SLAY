@@ -16,3 +16,14 @@
 .profile-biography-profile {
     width: 180px;
 }
+
+.profile-biography-modify-profile {
+    p{
+        @include mix.text-mobile("text-2", var.$regular, var.$black);
+    }  
+    @media #{var.$medium-large} {
+        p{
+            @include mix.text-desktop("text-2", var.$regular, var.$black);
+        }
+    }
+}

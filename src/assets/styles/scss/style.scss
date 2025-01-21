@@ -2,8 +2,10 @@
 @use "_mixins.scss" as mix;
 @use "_reset.scss";
 
-body{
+html, body{
     background: var.$blanched-almond-white;
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
