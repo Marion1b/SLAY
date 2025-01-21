@@ -2,12 +2,16 @@
 @use "_mixins.scss" as mix;
 @use "_reset.scss";
 
-body{
+html, body{
     background: var.$blanched-almond-white;
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
     @include mix.heading-mobile("title-1", normal, var.$black);
+    text-align: center;
+    margin: 1.5rem 0;
 }
 
 h2 {
@@ -25,6 +29,7 @@ h3 {
 @media #{var.$large} {
     h1 {
         @include mix.heading-desktop("title-1", normal, var.$black);
+        margin: 2rem 0;
     }
     
     h2 {

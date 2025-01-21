@@ -72,6 +72,7 @@ $blanched-almond:   #FFE4D5;
 // GRADIENTS
 $blanched-almond-white : linear-gradient($blanched-almond, $white);
 $atomic-tangerine-apricot: linear-gradient($atomic-tangerine, $apricot);
+$sandy-brown-xanthous: linear-gradient($sandy-brown, $xanthous);
 
 // FONT WEIGHT
 $light: 300;
@@ -102,9 +103,9 @@ $border-radius-lg: 32px;
 
 
 // SHADOW
-$box-shadow-sm: -2px -2px 2px rgba(0, 0, 0, 0.2);
-$box-shadow-md: -4px -4px 4px rgba(0, 0, 0, 0.2);
-$box-shadow-lg: -8px -8px 16px rgba(0, 0, 0, 0.2);
+$box-shadow-sm: 2px 2px 2px rgba(0, 0, 0, 0.2);
+$box-shadow-md: 4px 4px 4px rgba(0, 0, 0, 0.2);
+$box-shadow-lg: 8px 8px 16px rgba(0, 0, 0, 0.2);
 
 
 // RESPONSIVE

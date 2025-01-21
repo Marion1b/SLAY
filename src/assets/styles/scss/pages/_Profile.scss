@@ -1,0 +1,15 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.profile-page {
+    max-width: 500px;
+    padding: 0 20px 10px 0;
+    @include mix.flex(row, space-around, flex-end); 
+    .profile-section-left {
+        height: 100%;
+    }
+    .profile-section-right {
+        min-height: 120px;
+        @include mix.flex(column, space-between, flex-start);
+    }
+}

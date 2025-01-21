@@ -3,7 +3,7 @@
 
 .profile-picture-and-info{
     height: 135px;
-    width: 150px;
+    width: 135px;
     padding-top: .5rem;
     @include mix.flex(column, space-around, center);
     img {

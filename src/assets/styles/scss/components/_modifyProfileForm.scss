@@ -1,0 +1,49 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.modify-profile-form {
+    background-color: var.$white;
+    padding: 0 10% 2rem 10%;
+    h2 {
+        padding: 2rem 0 1rem 0;
+    }
+    p {
+        @include mix.text-mobile("text-1", var.$semi-bold, var.$black);
+    }
+    .modify-profile-edit-info-container {
+        @include mix.flex(row, flex-start, center);
+        svg {
+            width: 15px;
+            cursor: pointer;
+            margin-right: .8rem;
+        }
+        p {
+            @include mix.text-mobile("text-1", var.$regular, var.$black);
+            margin-top: .5rem;
+        }
+    }
+    .password {
+        margin-top: 1rem;
+    }
+    @media #{var.$extra-small} {
+        min-height: 340px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    @media #{var.$medium-large} {
+        p {
+            @include mix.text-desktop("text-1", var.$semi-bold, var.$black);
+            margin-bottom: .2rem;
+        }
+        .modify-profile-edit-info-container {
+            svg {
+                width: 20px;
+                margin-right: .8rem;
+            }
+            p {
+                @include mix.text-desktop("text-1", var.$regular, var.$black);
+                margin-top: .7rem;
+            }
+        }
+    }
+}

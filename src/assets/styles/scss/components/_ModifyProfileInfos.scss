@@ -1,0 +1,80 @@
+@use "../_vars.scss" as var;
+@use '../_mixins.scss' as mix;
+
+.modify-profile-infos{
+    padding-top: .8rem;
+    max-width: 400px;
+    img {
+        height: 130px;
+        width: 130px;
+        border-radius: 50%;
+    }
+    .modify-profile-edit-info-container {
+        @include mix.flex(row, space-between, flex-start);
+        > svg {
+            cursor: pointer;
+        }
+        > div {
+            .profile-name{
+                @include mix.text-mobile("text-1", var.$bold, var.$black);
+                margin-top: 1.3rem;
+            }
+            .modify-profile-location-container {
+                @include mix.flex(row, flex-start, center);
+                > svg {
+                    width: 14px;
+                    margin-right: .4rem;
+                }
+                .profile-location{
+                    @include mix.text-mobile("text-2", var.$regular, var.$black);
+                    margin-top: .3rem;
+                }
+            }
+        }
+    }
+    > div > p {
+        @include mix.text-mobile("text-2", var.$semi-bold, var.$black);
+        margin: 1.2rem 0 .2rem 0;
+    }
+    @media #{var.$extra-small} {
+        @include mix.flex(row, space-between, flex-start);
+        padding-top: 2.8rem;
+        > div {
+            margin-left: 2rem;
+        }
+    }
+    @media #{var.$medium-large} { 
+        img {
+            height: 150px;
+            width: 150px;
+        }
+        > div {
+            margin-left: 3rem;
+        }
+        .modify-profile-edit-info-container {
+            > svg {
+                margin-top: 1rem;
+            }
+            > div {
+                .profile-name{
+                    @include mix.text-desktop("text-1", var.$bold, var.$black);
+                    margin-top: 1.3rem;
+                }
+                .modify-profile-location-container {
+                    @include mix.flex(row, flex-start, center);
+                    > svg {
+                        margin-top: .2rem;
+                    }
+                    .profile-location{
+                        @include mix.text-desktop("text-2", var.$regular, var.$black);
+                        margin-top: .6rem;
+                    }
+                } 
+            }
+        }
+        > div > p {
+            @include mix.text-desktop("text-2", var.$semi-bold, var.$black);
+            margin: 1.4rem 0 .4rem 0;
+        }
+    }
+}
