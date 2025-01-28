@@ -19,6 +19,7 @@ import Search from './pages/Search.tsx';
 import Slayder from './pages/Slayder.tsx';
 
 function Root() {
+
   return (
     <StrictMode>
       <Router>

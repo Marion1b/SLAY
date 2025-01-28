@@ -112,9 +112,13 @@
     box-shadow: var.$box-shadow-md;
     @include text-mobile(text-2);
     background: var.$atomic-tangerine-apricot;
-    width: fit-content;
+    max-width: 300px;
     margin-bottom: 250px;
     @include flex(column);
+    .login-error{
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
     p{
         text-align: center;
         margin-top: 20px;
