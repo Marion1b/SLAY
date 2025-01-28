@@ -1,7 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {useFetch} from "./api/fetchUtils.tsx";
 
 // Global Styles
 import './assets/styles/scss/style.scss';
@@ -20,21 +19,6 @@ import Search from './pages/Search.tsx';
 import Slayder from './pages/Slayder.tsx';
 
 function Root() {
-  const {data, error, status} = useFetch('http://localhost:3000');
-
-  if(status === 'loading'){
-    console.log("loading");
-  }
-
-  if(status === "error"){
-    console.log("error : " + error);
-    console.log("data : " + data)
-  }
-
-  if(status === "success"){
-    console.log("success");
-    console.log(data);
-  }
 
   return (
     <StrictMode>
