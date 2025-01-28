@@ -2,6 +2,7 @@ import "../assets/styles/scss/pages/_Login.scss";
 import { useState } from "react";
 import {login} from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 function Login() {
     const [email, setEmail]= useState<string>('');
@@ -32,6 +33,8 @@ function Login() {
 
         if(status === "success"){
             setLoginError(false);
+            Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true});
+            Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true});
             navigate("/profil");
         }
 
