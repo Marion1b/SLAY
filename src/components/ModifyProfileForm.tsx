@@ -1,5 +1,5 @@
 import "../assets/styles/scss/components/_ModifyProfileForm.scss";
-import Edit from "../assets/images/icons/Edit.svg?react";
+import Edit from "../assets/images/iconsSVG/Edit.svg?react";
 import ModalModifyProfile from "../components/ModalModifyProfile";
 import { useState } from "react";
 

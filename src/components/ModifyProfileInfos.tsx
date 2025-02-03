@@ -1,7 +1,7 @@
 import "../assets/styles/scss/components/_ModifyProfileInfos.scss"
 import ProfileBiography from "../components/ProfileBiography";
-import Edit from "../assets/images/icons/Edit.svg?react";
-import PinPoint from "../assets/images/icons/PinPoint.svg?react";
+import Edit from "../assets/images/iconsSVG/Edit.svg?react";
+import PinPoint from "../assets/images/iconsSVG/PinPoint.svg?react";
 import ModalModifyProfile from "../components/ModalModifyProfile";
 import { useState } from "react";
 
