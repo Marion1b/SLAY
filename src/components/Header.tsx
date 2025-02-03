@@ -39,7 +39,7 @@ function Header() {
                 </li>
                 */}
                 <li>
-                    <a href="./connexion">
+                    <a href="./profil">
                         <ProfileIcon />
                         <p>Profil</p>
                     </a>
