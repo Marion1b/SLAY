@@ -10,7 +10,7 @@ import './assets/styles/scss/style.scss';
 import Header from './components/Header.tsx';
 
 function Root() {
-  console.log("try to remove do from Link");
+  console.log("it works bitch");
 
   return (
     <StrictMode>
