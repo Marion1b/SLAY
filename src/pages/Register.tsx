@@ -54,7 +54,7 @@ function Register() {
                     <input type="password" id="confirm-password" name="confirm-password" className={`register-page-input-password-${passwordSame}`} onChange={(e) => assignPasswords(setPassword2, e)} required />
                 </div>
                 <button type="submit">S'inscrire</button>
-                <p>Déjà un compte ? <Link to="./connexion">Se connecter</Link></p>
+                <p>Déjà un compte ? <Link to="/connexion">Se connecter</Link></p>
             </form>
         </main>
     )

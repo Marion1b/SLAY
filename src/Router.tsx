@@ -50,7 +50,7 @@ const Router = createBrowserRouter(
                             element: <Profile />
                         },
                         {
-                            path: 'radar',
+                            path: '/radar',
                             element: <Radar />
                         }
                     ]

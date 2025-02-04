@@ -16,7 +16,7 @@ function Header() {
             <nav className="page-header-nav">
                 <ul>
                 <li>
-                    <Link to="./">
+                    <Link to="/">
                         <HomeIcon />
                         <p>Accueil</p>
                     </Link>

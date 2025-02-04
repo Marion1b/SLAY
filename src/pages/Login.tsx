@@ -59,7 +59,7 @@ function Login() {
                     <input type="password" id="password" name="password" onChange={(e)=>{assignLoginData(setPassword,e)}}required />
                 </div>
                 <button type="submit">Se connecter</button>
-                <p>Pas encore de compte ? <Link to="./inscription">S'inscrire</Link></p>
+                <p>Pas encore de compte ? <Link to="/inscription">S'inscrire</Link></p>
             </form>
         </main>
     )
