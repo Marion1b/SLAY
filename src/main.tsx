@@ -10,10 +10,10 @@ import './assets/styles/scss/style.scss';
 import Header from './components/Header.tsx';
 
 function Root() {
+  console.log("try to change a href to Link component");
 
   return (
     <StrictMode>
-        <Header />
         <RouterProvider router={Router} />
     </StrictMode>
   );

@@ -3,6 +3,7 @@ import { useState } from "react";
 import {login} from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail]= useState<string>('');
@@ -58,7 +59,7 @@ function Login() {
                     <input type="password" id="password" name="password" onChange={(e)=>{assignLoginData(setPassword,e)}}required />
                 </div>
                 <button type="submit">Se connecter</button>
-                <p>Pas encore de compte ? <a href="./inscription">S'inscrire</a></p>
+                <p>Pas encore de compte ? <Link to="./inscription">S'inscrire</Link></p>
             </form>
         </main>
     )

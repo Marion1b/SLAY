@@ -10,6 +10,7 @@ import Radar from './pages/Radar.tsx';
 import Register from './pages/Register.tsx';
 import Search from './pages/Search.tsx';
 import Slayder from './pages/Slayder.tsx';
+import Layout from './pages/Layout.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 
 const getAccessToken= () =>{
@@ -23,37 +24,42 @@ const isAuthenticated = () => {
 const Router = createBrowserRouter(
     [
         {
-            path: "/",
-            element: <App />
-        },
-        {
-            path: "/connexion",
-            element: <Login />
-        },
-        {
-            path:"/inscription",
-            element: <Register />
-        },
-        {
-            element: <ProtectedRoute isAuthenticated={isAuthenticated()} />,
-            children: [
+            element: <Layout />,
+            children:[
                 {
-                    path: '/modifier-mon-profil',
-                    element:<ModifyProfile />
+                    path: "/",
+                    element: <App />
                 },
                 {
-                    path: '/profil',
-                    element: <Profile />
+                    path: "/connexion",
+                    element: <Login />
                 },
                 {
-                    path: 'radar',
-                    element: <Radar />
+                    path:"/inscription",
+                    element: <Register />
+                },
+                {
+                    element: <ProtectedRoute isAuthenticated={isAuthenticated()} />,
+                    children: [
+                        {
+                            path: '/modifier-mon-profil',
+                            element:<ModifyProfile />
+                        },
+                        {
+                            path: '/profil',
+                            element: <Profile />
+                        },
+                        {
+                            path: 'radar',
+                            element: <Radar />
+                        }
+                    ]
+                },
+                {
+                    path:"*",
+                    element: <p>404 Error - Nothing here...</p>
                 }
             ]
-        },
-        {
-            path:"*",
-            element: <p>404 Error - Nothing here...</p>
         }
     ]
 )

@@ -1,6 +1,7 @@
 import "../assets/styles/scss/pages/_Register.scss";
 import {useState} from 'react';
 import {isSamePassword, isPasswordCorrect} from "../utils/authUtils.ts";
+import { Link } from 'react-router-dom';
 
 function Register() {
     const [password1, setPassword1]=useState<string>("");
@@ -53,7 +54,7 @@ function Register() {
                     <input type="password" id="confirm-password" name="confirm-password" className={`register-page-input-password-${passwordSame}`} onChange={(e) => assignPasswords(setPassword2, e)} required />
                 </div>
                 <button type="submit">S'inscrire</button>
-                <p>Déjà un compte ? <a href="./connexion">Se connecter</a></p>
+                <p>Déjà un compte ? <Link to="./connexion">Se connecter</Link></p>
             </form>
         </main>
     )
