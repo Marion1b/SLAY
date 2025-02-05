@@ -13,12 +13,11 @@ import Slayder from './pages/Slayder.tsx';
 import Layout from './pages/Layout.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 
-const getAccessToken= () =>{
-    return Cookies.get('accessToken');
-}
-
 const isAuthenticated = () => {
-    return !!getAccessToken();
+    if(Cookies.get('accessToken')){
+        return true;
+    }
+    return false;
 }
 
 const Router = createBrowserRouter(
