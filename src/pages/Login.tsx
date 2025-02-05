@@ -5,14 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 
+
 function Login() {
+    const navigate = useNavigate();
     const [email, setEmail]= useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [data, setData] = useState<string | null>(null);
     const [errorFetch, setErrorFetch] = useState<Error| unknown |null>(null);
     const [status, setStatus] = useState<string | null>(null);
     const url = 'http://localhost:3000/api/v1/auth/login';
-    const navigate = useNavigate();
     const [loginError, setLoginError] = useState<boolean>(false);
 
     const assignLoginData = (setData:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLInputElement>):void =>{
@@ -36,7 +37,8 @@ function Login() {
             setLoginError(false);
             Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true});
             Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true});
-            navigate("/profil");
+            navigate('/profil');
+            location.reload();
         }
 
         if(status === "error"){
