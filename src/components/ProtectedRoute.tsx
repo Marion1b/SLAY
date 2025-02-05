@@ -5,7 +5,7 @@ interface WrapperProps{
 }
 
 const ProtectedRoute = (props:WrapperProps)=>{
-    if(!props.isAuthenticated){
+    if(props.isAuthenticated){
         return <Navigate to="/connexion" replace />;
     }
 
