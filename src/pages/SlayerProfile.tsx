@@ -3,7 +3,6 @@ import SlayButton from "../components/SlayButton";
 import ProfilePictureAndInfo from "../components/ProfilePictureAndInfo";
 import NumbersInfos from "../components/NumbersInfos";
 import ProfileBiography from "../components/ProfileBiography";
-import ModifyProfileButton from "../components/ModifyProfileButton";
 
 function Profile() {
 
@@ -16,7 +15,7 @@ function Profile() {
             <div className="profile-section-right">
                 <NumbersInfos reposts={4500} slayers={3200} suivis={439} />
                 <ProfileBiography className="profile-biography-profile"/>
-                <ModifyProfileButton />
+                <SlayButton slay={false} />
             </div>
         </section>
     )
