@@ -69,7 +69,7 @@ function Register() {
                         onChange={(e) => setPassword1(e.target.value)}
                         required
                     />
-                    {!isPasswordValid && <p className="error-message">Mot de passe invalide</p>}
+                    {!isPasswordValid && <p className="password-incorrect"></p>}
                 </div>
                 <div className={`register-page-fieldset ${doPasswordsMatch ? "" : "error"}`}>
                     <label htmlFor="confirm-password">Confirmer le mot de passe :</label>
@@ -80,10 +80,10 @@ function Register() {
                         onChange={(e) => setPassword2(e.target.value)}
                         required
                     />
-                    {!doPasswordsMatch && <p className="error-message">Les mots de passe ne correspondent pas</p>}
+                    {!doPasswordsMatch && <p className="password-no-same"></p>}
                 </div>
                 <button type="submit">S'inscrire</button>
-                {loginError && <p className="error-message">Échec de l'inscription. Veuillez réessayer.</p>}
+                {loginError && <p className="login-error">Échec de l'inscription. Veuillez réessayer.</p>}
                 <p>Déjà un compte ? <a href="./connexion">Se connecter</a></p>
             </form>
         </main>
