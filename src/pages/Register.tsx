@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { isSamePassword, isPasswordCorrect } from "../utils/authUtils.ts";
 import config from "../../config.ts";
+import { Link } from 'react-router-dom';
 
 function Register() {
     const url = `${config.API_URL}/v1/auth/signup`;
@@ -86,6 +87,7 @@ function Register() {
                 <button type="submit">S'inscrire</button>
                 {loginError && <p className="login-error">Échec de l'inscription. Veuillez réessayer.</p>}
                 <p>Déjà un compte ? <a href="./connexion">Se connecter</a></p>
+
             </form>
         </main>
     );

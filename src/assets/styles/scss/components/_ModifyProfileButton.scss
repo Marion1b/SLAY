@@ -1,6 +1,7 @@
 @use "../_vars.scss" as var;
 @use '../_mixins.scss' as mix;
 
-.slay-button{
+.modify-profile-button{
     @include mix.button();
+    font-weight: 400;
 }

@@ -3,15 +3,20 @@ import { useState } from "react";
 import { login } from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 import config from "../../config.ts";
 
 function Login() {
+    //Initiate link with API
+    const url = `${config.API_URL}/v1/auth/login`;
+
+    //Initiate variables for login
+    const navigate = useNavigate();
     const [email, setEmail]= useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [data, setData] = useState<string | null>(null);
     const [errorFetch, setErrorFetch] = useState<Error| unknown |null>(null);
     const [status, setStatus] = useState<string | null>(null);
-    const url = `${config.API_URL}/v1/auth/login`;
     const navigate = useNavigate();
     const [loginError, setLoginError] = useState<boolean>(false);
 
@@ -36,7 +41,19 @@ function Login() {
             setLoginError(false);
             Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true});
             Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true});
-            navigate("/profil");
+            navigate('/profil');
+            sessionStorage.setItem('slayerId', data.slayer.id);
+            sessionStorage.setItem('slayerEmail', data.slayer.email);
+            sessionStorage.setItem('slayerPseudo', data.slayer.pseudo);
+            sessionStorage.setItem('slayerIsAdmin', data.slayer.isAdmin);
+            sessionStorage.setItem('slayerAvatar', data.slayer.avatar);
+            sessionStorage.setItem('slayerRole', data.slayer.role);
+            sessionStorage.setItem('slayerPronouns', data.slayer.pronouns);
+            sessionStorage.setItem('slayerisSearching', data.slayer.isSearching);
+            sessionStorage.setItem('slayergeolocationId', data.slayer.geolocationId);
+            sessionStorage.setItem('slayerAvatar', data.slayer.geolocation);
+
+            location.reload();
         }
 
         if(status === "error"){
@@ -59,7 +76,7 @@ function Login() {
                     <input type="password" id="password" name="password" onChange={(e)=>{assignLoginData(setPassword,e)}}required />
                 </div>
                 <button type="submit">Se connecter</button>
-                <p>Pas encore de compte ? <a href="./inscription">S'inscrire</a></p>
+                <p>Pas encore de compte ? <Link to="/inscription">S'inscrire</Link></p>
             </form>
         </main>
     )

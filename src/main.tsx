@@ -1,19 +1,16 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import Router from './Router.tsx';
 
 // Global Styles
 import './assets/styles/scss/style.scss';
 
-// Components
-import Header from './components/Header.tsx';
-
 function Root() {
-
+  console.log(sessionStorage.getItem('slayerPseudo'));
   return (
     <StrictMode>
-        <Header />
         <RouterProvider router={Router} />
     </StrictMode>
   );

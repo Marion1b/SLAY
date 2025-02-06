@@ -7,6 +7,7 @@ import SearchIcon from "../assets/images/iconsSVG/Search.svg?react";
 import SlayderIcon from "../assets/images/iconsSVG/Add.svg?react";
 import NotificationIcon from "../assets/images/iconsSVG/Notif.svg?react";
 import ProfileIcon from "../assets/images/iconsSVG/Profile.svg?react";
+import { Link } from 'react-router-dom';
 
 function Header() {
     return (
@@ -15,10 +16,10 @@ function Header() {
             <nav className="page-header-nav">
                 <ul>
                 <li>
-                    <a href="./">
+                    <Link to="/">
                         <HomeIcon />
                         <p>Accueil</p>
-                    </a>
+                    </Link>
                 </li>
                 {/** Pas dans la V1  
                 <li>
@@ -39,10 +40,10 @@ function Header() {
                 </li>
                 */}
                 <li>
-                    <a href="./profil">
+                    <Link to="/profil">
                         <ProfileIcon />
                         <p>Profil</p>
-                    </a>
+                    </Link>
                 </li>
                 </ul>
             </nav>

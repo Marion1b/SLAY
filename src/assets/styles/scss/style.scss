@@ -26,6 +26,10 @@ h3 {
     @include mix.text-mobile("subtitle", normal, var.$black);
 }
 
+a{
+    text-decoration: none;
+}
+
 @media #{var.$large} {
     h1 {
         @include mix.heading-desktop("title-1", normal, var.$black);
