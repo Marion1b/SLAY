@@ -8,8 +8,7 @@ import Router from './Router.tsx';
 import './assets/styles/scss/style.scss';
 
 function Root() {
-  console.log(Cookies.get('accessToken'));
-
+  console.log(sessionStorage.getItem('slayerPseudo'));
   return (
     <StrictMode>
         <RouterProvider router={Router} />

@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 
-
 function Login() {
     const navigate = useNavigate();
     const [email, setEmail]= useState<string>('');
@@ -38,6 +37,17 @@ function Login() {
             Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true});
             Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true});
             navigate('/profil');
+            sessionStorage.setItem('slayerId', data.slayer.id);
+            sessionStorage.setItem('slayerEmail', data.slayer.email);
+            sessionStorage.setItem('slayerPseudo', data.slayer.pseudo);
+            sessionStorage.setItem('slayerIsAdmin', data.slayer.isAdmin);
+            sessionStorage.setItem('slayerAvatar', data.slayer.avatar);
+            sessionStorage.setItem('slayerRole', data.slayer.role);
+            sessionStorage.setItem('slayerPronouns', data.slayer.pronouns);
+            sessionStorage.setItem('slayerisSearching', data.slayer.isSearching);
+            sessionStorage.setItem('slayergeolocationId', data.slayer.geolocationId);
+            sessionStorage.setItem('slayerAvatar', data.slayer.geolocation);
+
             location.reload();
         }
 

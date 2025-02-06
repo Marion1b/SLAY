@@ -4,6 +4,8 @@ import ProfilePictureAndInfo from "../components/ProfilePictureAndInfo";
 import NumbersInfos from "../components/NumbersInfos";
 import ProfileBiography from "../components/ProfileBiography";
 
+//Profile page of another user
+
 function Profile() {
 
     return (
