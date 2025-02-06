@@ -4,7 +4,7 @@ import {login} from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import config from '../../config';
+import config from '../../configProd';
 
 function Login() {
     //Initiate link with API
