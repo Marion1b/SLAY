@@ -3,6 +3,7 @@ import { useState } from "react";
 import { login } from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import config from "../../config.ts";
 
 function Login() {
     const [email, setEmail]= useState<string>('');
@@ -10,7 +11,7 @@ function Login() {
     const [data, setData] = useState<string | null>(null);
     const [errorFetch, setErrorFetch] = useState<Error| unknown |null>(null);
     const [status, setStatus] = useState<string | null>(null);
-    const url = 'http://localhost:3000/api/v1/auth/login';
+    const url = `${config}/v1/auth/login`;
     const navigate = useNavigate();
     const [loginError, setLoginError] = useState<boolean>(false);
 
