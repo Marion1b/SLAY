@@ -4,15 +4,19 @@ import {login} from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+import config from '../../config';
 
 function Login() {
+    //Initiate link with API
+    const url = `${config.API_URL}/v1/auth/login`;
+
+    //Initiate variables for login
     const navigate = useNavigate();
     const [email, setEmail]= useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [data, setData] = useState<string | null>(null);
     const [errorFetch, setErrorFetch] = useState<Error| unknown |null>(null);
     const [status, setStatus] = useState<string | null>(null);
-    const url = 'http://localhost:3000/api/v1/auth/login';
     const [loginError, setLoginError] = useState<boolean>(false);
 
     const assignLoginData = (setData:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLInputElement>):void =>{
