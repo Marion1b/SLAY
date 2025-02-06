@@ -17,7 +17,6 @@ function Login() {
     const [data, setData] = useState<string | null>(null);
     const [errorFetch, setErrorFetch] = useState<Error| unknown |null>(null);
     const [status, setStatus] = useState<string | null>(null);
-    const navigate = useNavigate();
     const [loginError, setLoginError] = useState<boolean>(false);
 
     const assignLoginData = (setData:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLInputElement>):void =>{
