@@ -7,6 +7,8 @@ import { isSamePassword, isPasswordCorrect } from "../utils/authUtils.ts";
 import config from "../../config.ts";
 
 function Register() {
+    const url = `${config.API_URL}/v1/auth/signup`;
+
     const [email, setEmail] = useState('');
     const [pseudo, setPseudo] = useState('');
     const [password1, setPassword1] = useState('');
@@ -16,8 +18,6 @@ function Register() {
     const [status, setStatus] = useState<string | null>(null);
     const [loginError, setLoginError] = useState(false);
     const navigate = useNavigate();
-
-    const url = 'http://localhost:3000/api/v1/auth/signup';
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

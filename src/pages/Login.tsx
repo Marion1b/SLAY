@@ -11,7 +11,7 @@ function Login() {
     const [data, setData] = useState<string | null>(null);
     const [errorFetch, setErrorFetch] = useState<Error| unknown |null>(null);
     const [status, setStatus] = useState<string | null>(null);
-    const url = `${config}/v1/auth/login`;
+    const url = `${config.API_URL}/v1/auth/login`;
     const navigate = useNavigate();
     const [loginError, setLoginError] = useState<boolean>(false);
 
