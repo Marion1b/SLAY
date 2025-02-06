@@ -1,10 +1,10 @@
 import "../assets/styles/scss/pages/_Login.scss";
 import { useState } from "react";
-import {login} from "../api/fetchUtils.ts";
+import { login } from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import config from '../../configProd';
+import config from '../../configProd.ts';
 
 function Login() {
     //Initiate link with API

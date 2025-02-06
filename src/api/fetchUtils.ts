@@ -2,8 +2,14 @@
 
 import { data } from "react-router-dom"
 
-interface dataToSend {
-    email:string,
+interface dataToSendLogin {
+    email: string,
+    password: string
+}
+
+interface dataToSendRegister {
+    email: string,
+    pseudo: string,
     password: string
 }
 
@@ -30,7 +36,28 @@ interface dataToSend {
 //     return {data, error, status};
 // }
 
-export const login = async (url:string, dataToSend: dataToSend)=>{
+export const login = async (url:string, dataToSend: dataToSendLogin)=>{
+    try{
+        const response = await fetch(url, {
+            method: "POST",
+            headers:{
+                'Content-type':'application/json'
+            },
+            body:JSON.stringify(dataToSend)
+        });
+
+        if(!response.ok){
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        return{data, error:null, status:'success'};
+    }catch(error){
+        return{data:null, errorFetch: error, status:"error"};
+    }
+}
+
+export const register = async (url:string, dataToSend: dataToSendRegister)=>{
     try{
         const response = await fetch(url, {
             method: "POST",

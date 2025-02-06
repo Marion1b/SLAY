@@ -21,7 +21,7 @@
             @include mix.password-incorrect("password-no-same")
         }
     }
-    &-input-password-incorrect, .register-page-input-password-no-same{
+    &-input-password-incorrect, .register-page-input-password-no-same, .error-message{
         @include mix.style-error-password();
     }
     button{

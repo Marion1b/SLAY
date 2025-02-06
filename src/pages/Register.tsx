@@ -1,63 +1,96 @@
 import "../assets/styles/scss/pages/_Register.scss";
-import {useState} from 'react';
-import {isSamePassword, isPasswordCorrect} from "../utils/authUtils.ts";
+import { useState } from 'react';
+import { register } from "../api/fetchUtils.ts";
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { isSamePassword, isPasswordCorrect } from "../utils/authUtils.ts";
+import config from "../../config.ts";
 import { Link } from 'react-router-dom';
 
 function Register() {
-    const [password1, setPassword1]=useState<string>("");
-    const [password2, setPassword2]=useState<string>("");
-    const [passwordCorrect, setPasswordCorrect] = useState<string>("correct");
-    const [passwordSame, setPasswordSame] = useState<string>("same");
+    const url = `${config.API_URL}/v1/auth/signup`;
 
+    const [email, setEmail] = useState('');
+    const [pseudo, setPseudo] = useState('');
+    const [password1, setPassword1] = useState('');
+    const [password2, setPassword2] = useState('');
+    const [isPasswordValid, setIsPasswordValid] = useState(true);
+    const [doPasswordsMatch, setDoPasswordsMatch] = useState(true);
+    const [status, setStatus] = useState<string | null>(null);
+    const [loginError, setLoginError] = useState(false);
+    const navigate = useNavigate();
 
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-    function assignPasswords(setPassword:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLInputElement>):void{
-        setPassword(e.target.value.toString());
-    }
+        const validPassword = isPasswordCorrect(password1);
+        const matchingPasswords = isSamePassword(password1, password2);
 
-    function checkPasswords(e : React.FormEvent<HTMLFormElement>){
-        if(isPasswordCorrect(password1) && isSamePassword(password1,password2)){
-            e.preventDefault();
-            setPasswordCorrect("correct");
-            setPasswordSame("same");
-            console.log("register");
-        }else{
-            if(!isPasswordCorrect(password1)){
-                e.preventDefault();
-                setPasswordCorrect("incorrect");
-            }else{
-                e.preventDefault();
-                setPasswordCorrect("correct");
-                setPasswordSame("no-same");
+        setIsPasswordValid(validPassword);
+        setDoPasswordsMatch(matchingPasswords);
+
+        if (!validPassword || !matchingPasswords) return;
+
+        setStatus('Loading');
+
+        try {
+            const { data, errorFetch, status } = await register(url, { email, pseudo, password: password1 });
+
+            if (status === "success") {
+                Cookies.set('refreshToken', data.refreshToken, { sameSite: 'Strict', secure: true });
+                Cookies.set('accessToken', data.accessToken, { sameSite: 'Strict', secure: true });
+                setLoginError(false);
+                navigate("/connexion");
+            } else {
+                setLoginError(true);
             }
+        } catch (error) {
+            console.error("Registration error:", error);
+            setLoginError(true);
         }
-    }
+    };
 
     return (
         <main className="register-page">
             <h1>Inscription</h1>
-            <form action="" method="post" onSubmit={checkPasswords}>
+            <form action="" method="post" onSubmit={handleSubmit}>
                 <div className="register-page-fieldset">
-                    <label htmlFor="email">Adresse mail : </label>
-                    <input type="email" id="email" name="email" required />
+                    <label htmlFor="email">Adresse mail :</label>
+                    <input type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} required />
                 </div>
                 <div className="register-page-fieldset">
-                    <label htmlFor="username">Pseudo : </label>
-                    <input type="text" id="username" name="username" required />
+                    <label htmlFor="username">Pseudo :</label>
+                    <input type="text" id="username" name="username" onChange={(e) => setPseudo(e.target.value)} required />
                 </div>
-                <div className={`register-page-fieldset register-page-fieldset-password-${passwordCorrect}`}>
-                    <label htmlFor="password">Mot de passe : </label>
-                    <input type="password" id="password" name="password" className={`register-page-input-password-${passwordCorrect}`} onChange={(e) => assignPasswords(setPassword1, e)} required />
+                <div className={`register-page-fieldset ${isPasswordValid ? "" : "error"}`}>
+                    <label htmlFor="password">Mot de passe :</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        onChange={(e) => setPassword1(e.target.value)}
+                        required
+                    />
+                    {!isPasswordValid && <p className="password-incorrect"></p>}
                 </div>
-                <div className={`register-page-fieldset register-page-fieldset-password-${passwordSame}`}>
-                    <label htmlFor="confirm-password">Confirmer le mot de passe : </label>
-                    <input type="password" id="confirm-password" name="confirm-password" className={`register-page-input-password-${passwordSame}`} onChange={(e) => assignPasswords(setPassword2, e)} required />
+                <div className={`register-page-fieldset ${doPasswordsMatch ? "" : "error"}`}>
+                    <label htmlFor="confirm-password">Confirmer le mot de passe :</label>
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirm-password"
+                        onChange={(e) => setPassword2(e.target.value)}
+                        required
+                    />
+                    {!doPasswordsMatch && <p className="password-no-same"></p>}
                 </div>
                 <button type="submit">S'inscrire</button>
-                <p>Déjà un compte ? <Link to="/connexion">Se connecter</Link></p>
+                {loginError && <p className="login-error">Échec de l'inscription. Veuillez réessayer.</p>}
+                <p>Déjà un compte ? <a href="./connexion">Se connecter</a></p>
+
             </form>
         </main>
-    )
+    );
 }
 
-export default Register
+export default Register;
