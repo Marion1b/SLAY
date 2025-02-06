@@ -1,6 +1,6 @@
 import "../assets/styles/scss/pages/_Login.scss";
 import { useState } from "react";
-import {login} from "../api/fetchUtils.ts";
+import { login } from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
@@ -17,6 +17,7 @@ function Login() {
     const [data, setData] = useState<string | null>(null);
     const [errorFetch, setErrorFetch] = useState<Error| unknown |null>(null);
     const [status, setStatus] = useState<string | null>(null);
+    const navigate = useNavigate();
     const [loginError, setLoginError] = useState<boolean>(false);
 
     const assignLoginData = (setData:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLInputElement>):void =>{
