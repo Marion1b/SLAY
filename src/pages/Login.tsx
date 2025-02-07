@@ -40,7 +40,6 @@ function Login() {
             setLoginError(false);
             Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true});
             Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true});
-            navigate('/profil');
             sessionStorage.setItem('slayerId', data.slayer.id);
             sessionStorage.setItem('slayerEmail', data.slayer.email);
             sessionStorage.setItem('slayerPseudo', data.slayer.pseudo);
@@ -51,8 +50,7 @@ function Login() {
             sessionStorage.setItem('slayerisSearching', data.slayer.isSearching);
             sessionStorage.setItem('slayergeolocationId', data.slayer.geolocationId);
             sessionStorage.setItem('slayerAvatar', data.slayer.geolocation);
-
-            location.reload();
+            navigate('/profil');
         }
 
         if(status === "error"){
