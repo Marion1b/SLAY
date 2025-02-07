@@ -26,7 +26,6 @@ function Login() {
     const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus('Loading');
-
         try{
             const {data, errorFetch, status} = await login(url, {email, password});
             if(status === "success"){
