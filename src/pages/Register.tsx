@@ -4,7 +4,7 @@ import { register } from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { isSamePassword, isPasswordCorrect } from "../utils/authUtils.ts";
-import config from "../../config.ts";
+import config from "../../configProd.ts";
 import { Link } from 'react-router-dom';
 
 function Register() {
