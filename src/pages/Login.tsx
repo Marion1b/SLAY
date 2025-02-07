@@ -4,7 +4,7 @@ import { login } from "../api/fetchUtils.ts";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import config from '../../configProd.ts';
+import config from '../../config.ts';
 
 function Login() {
     //Initiate link with API
@@ -27,35 +27,29 @@ function Login() {
         e.preventDefault();
         setStatus('Loading');
 
-        const {data, errorFetch, status} = await login(url, {email, password});
-
-        setData(data);
-        setErrorFetch(errorFetch);
-        setStatus(status);
-
-        console.log(data);
-        console.log(status);
-
-        if(status === "success"){
-            setLoginError(false);
-            Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true});
-            Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true});
-            navigate('/profil');
-            sessionStorage.setItem('slayerId', data.slayer.id);
-            sessionStorage.setItem('slayerEmail', data.slayer.email);
-            sessionStorage.setItem('slayerPseudo', data.slayer.pseudo);
-            sessionStorage.setItem('slayerIsAdmin', data.slayer.isAdmin);
-            sessionStorage.setItem('slayerAvatar', data.slayer.avatar);
-            sessionStorage.setItem('slayerRole', data.slayer.role);
-            sessionStorage.setItem('slayerPronouns', data.slayer.pronouns);
-            sessionStorage.setItem('slayerisSearching', data.slayer.isSearching);
-            sessionStorage.setItem('slayergeolocationId', data.slayer.geolocationId);
-            sessionStorage.setItem('slayerAvatar', data.slayer.geolocation);
-
-            location.reload();
-        }
-
-        if(status === "error"){
+        try{
+            const {data, errorFetch, status} = await login(url, {email, password});
+            if(status === "success"){
+                setLoginError(false);
+                Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true});
+                Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true});
+                sessionStorage.setItem('slayerId', data.slayer.id);
+                sessionStorage.setItem('slayerEmail', data.slayer.email);
+                sessionStorage.setItem('slayerPseudo', data.slayer.pseudo);
+                sessionStorage.setItem('slayerIsAdmin', data.slayer.isAdmin);
+                sessionStorage.setItem('slayerAvatar', data.slayer.avatar);
+                sessionStorage.setItem('slayerRole', data.slayer.role);
+                sessionStorage.setItem('slayerPronouns', data.slayer.pronouns);
+                sessionStorage.setItem('slayerisSearching', data.slayer.isSearching);
+                sessionStorage.setItem('slayergeolocationId', data.slayer.geolocationId);
+                sessionStorage.setItem('slayerAvatar', data.slayer.geolocation);
+                navigate('/profil');
+                window.location.reload();
+            }else{
+                setLoginError(true);
+            }
+        }catch(error){
+            console.error("Login error:", error);
             setLoginError(true);
         }
 
