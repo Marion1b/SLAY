@@ -8,7 +8,6 @@ import Router from './Router.tsx';
 import './assets/styles/scss/style.scss';
 
 function Root() {
-  console.log('hihi');
   return (
     <StrictMode>
         <RouterProvider router={Router} />
