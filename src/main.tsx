@@ -8,7 +8,7 @@ import Router from './Router.tsx';
 import './assets/styles/scss/style.scss';
 
 function Root() {
-  console.log(sessionStorage.getItem('slayerPseudo'));
+  console.log('hihi');
   return (
     <StrictMode>
         <RouterProvider router={Router} />
