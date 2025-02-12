@@ -4,8 +4,8 @@ import ModalModifyProfile from "../components/ModalModifyProfile";
 import { useState } from "react";
 
 interface WrapperProps{
-    role: string;
-    mail: string;
+    role: string|null;
+    mail: string|null;
     password: string;
 }
 
@@ -13,12 +13,26 @@ function ModifyProfileForm(props: WrapperProps) {
     const [isOpenUser, setIsOpenUser] = useState<boolean>(false);
     const [isOpenEmail, setIsOpenEmail] = useState<boolean>(false);
     const [isOpenPassword, setIsOpenPassword] = useState<boolean>(false);
+    let role:string = "";
+    if(props.role !== null){
+        switch (props.role.toLowerCase()){
+            case 'artist':
+                role = "artiste";
+                break;
+            case 'band':
+                role='groupe';
+                break;
+            default : 
+                role="utilisateur-ice";
+        }
+    }
+    
     return (
         <section className="modify-profile-form" >
             <h2>Je suis</h2>
             <div className="modify-profile-edit-info-container">
                 <button className="edit-button" onClick={()=>setIsOpenUser(true)}><Edit /></button>
-                <p>{props.role}</p>
+                <p>{role}</p>
             </div>
             <h2>Mes informations</h2>
             <p>Adresse mail :</p>

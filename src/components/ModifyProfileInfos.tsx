@@ -4,23 +4,29 @@ import Edit from "../assets/images/iconsSVG/Edit.svg?react";
 import PinPoint from "../assets/images/iconsSVG/PinPoint.svg?react";
 import ModalModifyProfile from "../components/ModalModifyProfile";
 import { useState } from "react";
+import profileImage from "../assets/images/default/profileImage.jpg";
 
 interface WrapperProps {
-    name: string;
+    name: string|null;
     city: string;
     country: string;
-    pronouns: string;
+    pronouns: string|null;
+    avatar: string|null;
 }
 
 function ModifyProfileInfos(props: WrapperProps) {
     const [isOpenUserInfos, setIsOpenUserInfos] = useState<boolean>(false);
+    let avatar: string = profileImage;
+    if(typeof props.avatar === "string" && props.avatar !== "null"){
+        avatar= props.avatar;
+    }
     return (
         <section className="modify-profile-infos">
-            <img src="./src/assets/images/test/Antoine_Daniel.jpg" alt="Photo de profil de Antoine Daniel" />
+            <img src={avatar} alt="Photo de profil" />
             <div>
                 <div className="modify-profile-edit-info-container">
                     <div>
-                        <p className="profile-name">{props.name} ({props.pronouns})</p>
+                        <p className="profile-name">{props.name} {props.pronouns!=="null" && `(${props.pronouns})`}</p>
                         <div className="modify-profile-location-container">
                             <PinPoint />
                             <p className="profile-location">{props.city}, {props.country}</p>

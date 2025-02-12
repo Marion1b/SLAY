@@ -9,9 +9,9 @@ function ModifyProfile() {
             <h1>Modifier mon profil</h1>
             <section className="modify-profile-form-container">
                 <section className="modify-profile-profile-section">
-                    <ModifyProfileInfos name="Antoine Daniel" city="Montpellier" country="France" pronouns="il" />
+                    <ModifyProfileInfos name={sessionStorage.getItem('slayerPseudo')} city="Montpellier" country="France" pronouns={sessionStorage.getItem('slayerPronouns')} avatar={sessionStorage.getItem('slayerAvatar')}/>
                 </section>
-                <ModifyProfileForm role="Utilisateur / utilisatrice" mail="antoine.daniel@gmail.com" password="***************"/>
+                <ModifyProfileForm role={sessionStorage.getItem('slayerRole')} mail={sessionStorage.getItem('slayerEmail')} password="***************"/>
             </section>
             </section>
     )
