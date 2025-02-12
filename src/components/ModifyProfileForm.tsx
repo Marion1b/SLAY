@@ -1,12 +1,11 @@
 import "../assets/styles/scss/components/_ModifyProfileForm.scss";
 import Edit from "../assets/images/iconsSVG/Edit.svg?react";
-import ModalModifyProfile from "../components/ModalModifyProfile";
+import {isSamePassword, isPasswordCorrect} from "../utils/authUtils.ts";
 import { useState } from "react";
 
 interface WrapperProps{
     role: string|null;
     mail: string|null;
-    password: string;
 }
 
 function ModifyProfileForm(props: WrapperProps) {
@@ -14,6 +13,20 @@ function ModifyProfileForm(props: WrapperProps) {
     const [isOpenEmail, setIsOpenEmail] = useState<boolean>(false);
     const [isOpenPassword, setIsOpenPassword] = useState<boolean>(false);
     let role:string = "";
+    let mail:string = "";
+    const [lastPassword, setLastPassword] = useState<string>("");
+    const [newPassword, setNewPassword] = useState<string>("");
+    const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
+    const [lastPasswordSame, setLastPasswordSame] = useState<string>("same");
+    const [passwordCorrect, setPasswordCorrect] = useState<string>("correct");
+    const [passwordSame, setPasswordSame] = useState<string>("same");
+    const [differentOldPassword, setDifferentOldPassword] = useState<string>("different");
+    const [currentPasswordForMail, setCurrentPasswordForMail]=useState<string>("");
+
+    function assignPasswords(setPassword:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLInputElement>):void{
+        setPassword(e.target.value.toString());
+    }
+
     if(props.role !== null){
         switch (props.role.toLowerCase()){
             case 'artist':
@@ -26,29 +39,71 @@ function ModifyProfileForm(props: WrapperProps) {
                 role="utilisateur-ice";
         }
     }
+    if(typeof props.mail === "string" && props.mail!== "null"){
+        mail = props.mail;
+    }
     
     return (
         <section className="modify-profile-form" >
             <h2>Je suis</h2>
             <div className="modify-profile-edit-info-container">
-                <button className="edit-button" onClick={()=>setIsOpenUser(true)}><Edit /></button>
-                <p>{role}</p>
+                <button className="edit-button" onClick={()=>setIsOpenUser(!isOpenUser)}><Edit /></button>
+                {isOpenUser 
+                ? <form action="" method="POST">
+                    <div className="modal-modify-profile-fieldset">
+                        <label htmlFor="user-role">Je suis  un-e: </label>
+                        <select name="user-role" id="user-role">
+                            <option value="user">Utilisateur-ice</option>
+                            <option value="artist">Artiste</option>
+                            <option value="band">Groupe</option>
+                        </select>
+                    </div>
+                    <button type="submit" className="modal-modify-profile-submit-button">Modifier</button>
+                </form>
+                :<p>{role}</p>}
             </div>
             <h2>Mes informations</h2>
             <p>Adresse mail :</p>
             <div className="modify-profile-edit-info-container">
-                <button className="edit-button" onClick={()=>setIsOpenEmail(true)}><Edit /></button>
-                <p>{props.mail}</p>
+                <button className="edit-button" onClick={()=>setIsOpenEmail(!isOpenEmail)}><Edit /></button>
+                {isOpenEmail
+                ?<form action="" method="POST">
+                    <div className={`modal-modify-profile-fieldset`}>
+                        <label htmlFor="current-password">Mot de passe actuel : </label>
+                        <input type="password" name="current-password" id="current-password" onChange={(e) => assignPasswords(setCurrentPasswordForMail, e)} required />
+                    </div>
+                    <div className="modal-modify-profile-fieldset">
+                        <label htmlFor="email">Modifier mon email : </label>
+                        <input type="email" name="email" id="email" value={mail} required />
+                    </div>
+                    <button type="submit" className="modal-modify-profile-submit-button">Modifier</button>
+                </form>
+                :<p>{mail}</p>
+                }
             </div>
             <p className="password">Mot de passe :</p>
             <div className="modify-profile-edit-info-container">
-                <button className="edit-button" onClick={()=>setIsOpenPassword(true)}><Edit /></button>
-                <p>{props.password}</p>
+                <button className="edit-button" onClick={()=>setIsOpenPassword(!isOpenPassword)}><Edit /></button>
+                {isOpenPassword
+                ?<form action="" method="POST" >
+                    <div className={`modal-modify-profile-fieldset last-password-fieldset-${lastPasswordSame}`}>
+                        <label htmlFor="last-password">Mot de passe actuel : </label>
+                        <input type="password" name="last-password" id="last-password" className={`input-last-password-${lastPasswordSame}`} onChange={(e) => assignPasswords(setLastPassword, e)} required />
+                    </div>
+                    <div className={`modal-modify-profile-fieldset password-fieldset-${passwordCorrect} last-password-fieldset-${differentOldPassword}`}>
+                        <label htmlFor="new-password">Nouveau mot de passe : </label>
+                        <input type="password" name="new-password" id="new-password" className={`input-password-${passwordCorrect} input-last-password-${setDifferentOldPassword}`} onChange={(e) => assignPasswords(setNewPassword, e)} required />
+                    </div>
+                    <div className={`modal-modify-profile-fieldset password-fieldset-${passwordSame}`}>
+                        <label htmlFor="confirm-new-password">Confirmer le nouveau mot de passe : </label>
+                        <input type="password" name="confirm-new-password" id="confirm-new-password" className={`input-password-${passwordSame}`} onChange={(e) => assignPasswords(setConfirmNewPassword, e)} required />
+                    </div>
+                    <button type="submit" className="modal-modify-profile-submit-button">Modifier</button>
+                </form>
+                : <p>******************</p>
+                }
             </div>
             <h2>Mes tags musicaux</h2>
-            {isOpenUser && <ModalModifyProfile name="type-of-user" value="" setIsOpen={setIsOpenUser} />}
-            {isOpenEmail && <ModalModifyProfile name="email" value="amy-la-chipie@yahoo.fr" setIsOpen={setIsOpenEmail}/>}
-            {isOpenPassword && <ModalModifyProfile name="password" value="Azerazerazer12!" setIsOpen={setIsOpenPassword} />}
         </section>
     )
 }

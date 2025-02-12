@@ -1,13 +1,15 @@
 import "../assets/styles/scss/components/_ProfileBiography.scss";
 
 interface WrapperProps {
-    className: string
+    className: string;
+    content: string | null;
 }
 
 function ProfileBiography(props: WrapperProps) {
     return (
         <section className={`profile-biography ${props.className}`} >
-            <p>Plus grand streameur du monde et super musicien aguerrie, j’aime faire des musiques décalées. #fifou</p>
+            {props.content !== "null" && 
+            <p>{props.content}</p>}
         </section>
     )
 }

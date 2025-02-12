@@ -11,7 +11,7 @@ function ModifyProfile() {
                 <section className="modify-profile-profile-section">
                     <ModifyProfileInfos name={sessionStorage.getItem('slayerPseudo')} city="Montpellier" country="France" pronouns={sessionStorage.getItem('slayerPronouns')} avatar={sessionStorage.getItem('slayerAvatar')}/>
                 </section>
-                <ModifyProfileForm role={sessionStorage.getItem('slayerRole')} mail={sessionStorage.getItem('slayerEmail')} password="***************"/>
+                <ModifyProfileForm role={sessionStorage.getItem('slayerRole')} mail={sessionStorage.getItem('slayerEmail')} />
             </section>
             </section>
     )
