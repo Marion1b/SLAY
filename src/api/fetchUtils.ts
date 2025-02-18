@@ -59,7 +59,6 @@ export const login = async (url:string, dataToSend: dataToSendLogin)=>{
     if (isTokenExpired(accessToken)) {
         accessToken = await refreshAccessToken();
     }
-
     try{
         const response = await fetch(url, {
             method: "POST",
