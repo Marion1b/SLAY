@@ -207,8 +207,7 @@
     background: linear-gradient(to right, var.$atomic-tangerine 50%, var.$xanthous 50%);
     background-size: 200%;
     background-position: left;
-    @include text-mobile(text-2);
-    font-weight: 600; //à mettre dans la mixin text.mobile 
+    @include text-mobile("text-2", var.$semi-bold, var.$black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -223,7 +222,7 @@
         height: 15px;
     }
     @media #{var.$larger} {
-        @include text-desktop(text-2); //ajouter font-weight
+        @include text-desktop("text-2", var.$semi-bold, var.$black);
         svg{
             width: 18px;
             height: 18px;

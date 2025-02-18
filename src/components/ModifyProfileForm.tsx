@@ -51,11 +51,11 @@ function ModifyProfileForm(props: WrapperProps) {
                 {isOpenUser 
                 ? <form action="" method="POST">
                     <div className="modal-modify-profile-fieldset">
-                        <label htmlFor="user-role">Je suis  un-e: </label>
+                        <label htmlFor="user-role" hidden>Je suis  un-e: </label>
                         <select name="user-role" id="user-role">
-                            <option value="user">Utilisateur-ice</option>
-                            <option value="artist">Artiste</option>
-                            <option value="band">Groupe</option>
+                            <option value="user">utilisateur-ice</option>
+                            <option value="artist">artiste</option>
+                            <option value="band">groupe</option>
                         </select>
                     </div>
                     <button type="submit" className="modal-modify-profile-submit-button">Modifier</button>
@@ -69,11 +69,11 @@ function ModifyProfileForm(props: WrapperProps) {
                 {isOpenEmail
                 ?<form action="" method="POST">
                     <div className={`modal-modify-profile-fieldset`}>
-                        <label htmlFor="current-password">Mot de passe actuel : </label>
+                        <label htmlFor="current-password" >Mot de passe actuel : </label>
                         <input type="password" name="current-password" id="current-password" onChange={(e) => assignPasswords(setCurrentPasswordForMail, e)} required />
                     </div>
                     <div className="modal-modify-profile-fieldset">
-                        <label htmlFor="email">Modifier mon email : </label>
+                        <label htmlFor="email" >Modifier mon email : </label>
                         <input type="email" name="email" id="email" value={mail} required />
                     </div>
                     <button type="submit" className="modal-modify-profile-submit-button">Modifier</button>

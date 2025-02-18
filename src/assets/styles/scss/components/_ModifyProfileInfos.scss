@@ -3,7 +3,59 @@
 
 .modify-profile-infos{
     padding-top: .8rem;
-    max-width: 400px;
+    // max-width: 400px;
+    form{
+        @include mix.flex(column, center, flex-start, wrap);
+        .modify-profile-infos-image{
+            max-width: 100%;
+            label{
+                margin-top: 15px;
+            }
+        }
+        .modify-profile-edit-info-container{
+            width: 100%;
+        }
+        .modal-modify-profile-fieldset{
+            @include mix.flex(column, flex-start, flex-start);
+            margin-bottom: 10px;
+            line-height: 15px;
+            label{
+                margin-bottom: 5px;
+                @include mix.text-mobile('text-2', var.$bold, var.$black);
+            }
+            input, select{
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid var.$black;
+                font-family: var.$hind;
+                @include mix.text-mobile('text-3', var.$regular, var.$black);
+                &:focus{
+                    outline: none;
+                    border-bottom: 2px solid var.$black;
+                }
+            }
+            textarea{
+                background-color: transparent;
+                border: 1px solid var.$black;
+                font-family: var.$hind;
+                width: 100%;
+                @include mix.text-mobile('text-3', var.$regular, var.$black);
+                &:focus{
+                    outline: none;
+                    border: 2px solid var.$black;
+                }
+            }
+        }
+        .modal-modify-profile-submit-button{
+            @include mix.button();
+        }
+        .edit-button{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transform: translate(800%, -725%);
+        }
+    }
     img {
         height: 130px;
         width: 130px;
@@ -13,39 +65,45 @@
         background-color: transparent;
         border: none;
         cursor: pointer;
+        transform: translate(800%, -350%);
     }
     .modify-profile-edit-info-container {
-        @include mix.flex(row, space-between, flex-start);
-        > svg {
-            cursor: pointer;
+        .profile-name{
+            @include mix.text-mobile("text-1", var.$bold, var.$black);
+            margin-top: 1.3rem;
         }
-        > div {
-            .profile-name{
-                @include mix.text-mobile("text-1", var.$bold, var.$black);
-                margin-top: 1.3rem;
+        .modify-profile-location-container {
+            @include mix.flex(row, flex-start, center);
+            > svg {
+                width: 14px;
+                margin-right: .4rem;
             }
-            .modify-profile-location-container {
-                @include mix.flex(row, flex-start, center);
-                > svg {
-                    width: 14px;
-                    margin-right: .4rem;
-                }
-                .profile-location{
-                    @include mix.text-mobile("text-2", var.$regular, var.$black);
-                    margin-top: .3rem;
-                }
+            .profile-location{
+                @include mix.text-mobile("text-2", var.$regular, var.$black);
+                margin-top: .3rem;
             }
         }
-    }
-    > div > p {
-        @include mix.text-mobile("text-2", var.$semi-bold, var.$black);
-        margin: 1.2rem 0 .2rem 0;
+        .modify-profile-infos-bio{
+            @include mix.text-mobile("text-2", var.$semi-bold, var.$black);
+            margin: 1.2rem 0 .2rem 0;
+        }
+        .profile-biography-modify-profile{
+            p{
+                @include mix.text-mobile("text-3", var.$regular, var.$black);
+            }
+        }
     }
     @media #{var.$extra-small} {
         @include mix.flex(row, space-between, flex-start);
-        padding-top: 2.8rem;
-        > div {
-            margin-left: 2rem;
+        form{
+            @include mix.flex(row, center, flex-start, wrap);
+            gap: 25px;
+        }
+        .modify-profile-edit-info-container {
+            margin-left: 20px;
+        }
+        .edit-button{
+            transform: none;
         }
     }
     @media #{var.$medium-large} { 
@@ -53,33 +111,64 @@
             height: 150px;
             width: 150px;
         }
-        > div {
-            margin-left: 3rem;
-        }
         .modify-profile-edit-info-container {
             > svg {
                 margin-top: 1rem;
             }
-            > div {
-                .profile-name{
-                    @include mix.text-desktop("text-1", var.$bold, var.$black);
-                    margin-top: 1.3rem;
+            .profile-name{
+                @include mix.text-desktop("text-1", var.$bold, var.$black);
+                margin-top: 1.3rem;
+            }
+            .modify-profile-location-container {
+                @include mix.flex(row, flex-start, center);
+                > svg {
+                    margin-top: .2rem;
                 }
-                .modify-profile-location-container {
-                    @include mix.flex(row, flex-start, center);
-                    > svg {
-                        margin-top: .2rem;
-                    }
-                    .profile-location{
-                        @include mix.text-desktop("text-2", var.$regular, var.$black);
-                        margin-top: .6rem;
-                    }
-                } 
+                .profile-location{
+                    @include mix.text-desktop("text-2", var.$regular, var.$black);
+                    margin-top: .6rem;
+                }
+            } 
+            .modify-profile-infos-bio{
+                @include mix.text-desktop("text-2", var.$semi-bold, var.$black);
+                margin-top: 15px;
+            }
+            .profile-biography-modify-profile{
+                p{
+                    @include mix.text-desktop("text-3", var.$regular, var.$black);
+                    margin-top: 10px;
+                }
+            }
+            .edit-button{
+                transform: none;
+            }
+            
+        }
+        form{
+            @include mix.flex(row, center, flex-start, wrap);
+            gap: 25px;
+            .modify-profile-infos-image{
+                max-width: 40%;
+                overflow: hidden;
+                label{
+                    margin-top: 15px;
+                }
+            }
+            .modify-profile-edit-info-container{
+                width: 40%;
+            }
+            .modal-modify-profile-fieldset{
+                label{
+                    @include mix.text-desktop('text-2', var.$bold, var.$black);
+                }
+                input, select, textarea{
+                    @include mix.text-desktop('text-3', var.$regular, var.$black);
+                }
+            }
+            .edit-button{
+                transform: none;
             }
         }
-        > div > p {
-            @include mix.text-desktop("text-2", var.$semi-bold, var.$black);
-            margin: 1.4rem 0 .4rem 0;
-        }
     }
+    
 }
