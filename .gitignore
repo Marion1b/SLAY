@@ -23,6 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 config.ts
+routes.txt
 
 # min.css
 src/assets/styles/css/style.min.css

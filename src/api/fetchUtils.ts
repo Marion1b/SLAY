@@ -1,6 +1,7 @@
-// import { useState, useEffect } from "react"
-
-import { data } from "react-router-dom"
+import { data } from "react-router-dom";
+import { isTokenExpired } from "./tokenUtils";
+import Cookies from "js-cookie";
+import config from '../../config.ts';
 
 interface dataToSendLogin {
     email: string,
@@ -13,30 +14,36 @@ interface dataToSendRegister {
     password: string
 }
 
-// export const useFetch = (url:string) =>{
-//     const [data, setData] = useState<string|null>(null);
-//     const [error, setError] = useState<Error|null>(null);
-//     const [status, setStatus] = useState<string|null>(null);
+export const refreshAccessToken = async() =>{
+    const expirationAT = new Date(new Date().getTime()+15*60*1000);
+    const refreshToken = Cookies.get('refreshToken');
+    const response = await fetch(`${config.API_URL}/v1/auth/tokenRotation`,{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({refreshToken})
+    });
 
-//     useEffect(()=>{
-//         setStatus('loading');
-
-//         fetch(url)
-//             .then((response)=>response.text())
-//             .then((data) => {
-//                 setData(data);
-//                 setStatus('success');
-//             })
-//         .catch((error : Error)=>{
-//             setError(error);
-//             setStatus('error');
-//         })
-//     }, [url])
-
-//     return {data, error, status};
-// }
+    if(response.ok){
+        const data = await response.json();
+        Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true, expires: expirationAT});
+        if(data.refreshToken){
+            Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true, expires:7});
+        }
+        return data.acessToken
+    } else{
+        console.log("erreur lors de refresh access token");
+    }
+}
 
 export const login = async (url:string, dataToSend: dataToSendLogin)=>{
+    let accessToken = Cookies.get('accessToken');
+
+    if (isTokenExpired(accessToken)) {
+        accessToken = await refreshAccessToken();
+    }
+
     try{
         const response = await fetch(url, {
             method: "POST",
@@ -58,6 +65,12 @@ export const login = async (url:string, dataToSend: dataToSendLogin)=>{
 }
 
 export const register = async (url:string, dataToSend: dataToSendRegister)=>{
+    let accessToken = Cookies.get('accessToken');
+
+    if (isTokenExpired(accessToken)) {
+        accessToken = await refreshAccessToken();
+    }
+    
     try{
         const response = await fetch(url, {
             method: "POST",
