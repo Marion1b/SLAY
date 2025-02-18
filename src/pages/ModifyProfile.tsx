@@ -13,7 +13,7 @@ function ModifyProfile() {
                 </section>
                 <ModifyProfileForm role={sessionStorage.getItem('slayerRole')} mail={sessionStorage.getItem('slayerEmail')} />
             </section>
-            </section>
+        </section>
     )
 }
 

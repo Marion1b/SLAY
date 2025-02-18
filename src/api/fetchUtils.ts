@@ -1,4 +1,3 @@
-import { data } from "react-router-dom";
 import { isTokenExpired } from "./tokenUtils";
 import Cookies from "js-cookie";
 import config from '../../config.ts';
@@ -12,6 +11,22 @@ interface dataToSendRegister {
     email: string,
     pseudo: string,
     password: string
+}
+
+export const logout = async() =>{
+    await fetch (`${config.API_URL}/v1/auth/tokenRotation/logout`, {
+        method: 'GET',
+        headers:{
+            'Content-Type':'application/json'
+        },
+    });
+
+    Cookies.remove('refreshToken');
+    Cookies.remove('accessToken');
+    for(let i in sessionStorage){
+        sessionStorage.removeItem(i);
+    }
+    window.location.reload();
 }
 
 export const refreshAccessToken = async() =>{
@@ -34,6 +49,7 @@ export const refreshAccessToken = async() =>{
         return data.acessToken
     } else{
         console.log("erreur lors de refresh access token");
+        logout();
     }
 }
 
