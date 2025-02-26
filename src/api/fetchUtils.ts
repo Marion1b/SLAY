@@ -14,11 +14,11 @@ interface dataToSendRegister {
 }
 
 interface dataToSendModify{
-    // email:string
-    pseudo:string
-    avatar:string
-    // role:string
-    pronouns:string
+    email?:string
+    pseudo?:string | null
+    avatar?:string | null
+    role?:string | null
+    pronouns?:string | null
     // isSearching:boolean
     // geolocation:{
     //     id:number

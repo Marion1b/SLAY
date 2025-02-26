@@ -2,7 +2,8 @@ import "../assets/styles/scss/components/_ModifyProfileForm.scss";
 import Edit from "../assets/images/iconsSVG/Edit.svg?react";
 import {isSamePassword, isPasswordCorrect} from "../utils/authUtils.ts";
 import { useState } from "react";
-import { logout } from "../api/fetchUtils.ts";
+import { logout, modifyProfile } from "../api/fetchUtils.ts";
+import config from '../../config.ts';
 
 interface WrapperProps{
     role: string|null;
@@ -13,8 +14,8 @@ function ModifyProfileForm(props: WrapperProps) {
     const [isOpenUser, setIsOpenUser] = useState<boolean>(false);
     const [isOpenEmail, setIsOpenEmail] = useState<boolean>(false);
     const [isOpenPassword, setIsOpenPassword] = useState<boolean>(false);
-    let role:string = "";
-    let mail:string = "";
+    let currentRole:string = "";
+    let currentMail:string = "";
     const [lastPassword, setLastPassword] = useState<string>("");
     const [newPassword, setNewPassword] = useState<string>("");
     const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
@@ -31,29 +32,83 @@ function ModifyProfileForm(props: WrapperProps) {
     if(props.role !== null){
         switch (props.role.toLowerCase()){
             case 'artist':
-                role = "artiste";
+                currentRole = "artiste";
                 break;
             case 'band':
-                role='groupe';
+                currentRole='groupe';
                 break;
             default : 
-                role="utilisateur-ice";
+                currentRole="utilisateur-ice";
         }
     }
     if(typeof props.mail === "string" && props.mail!== "null"){
-        mail = props.mail;
+        currentMail = props.mail;
     }
     
+    const url = `${config.API_URL}/v1/auth/modifyProfile`;
+    const[status, setStatus] = useState<string|null>(null);
+    const [role, setRole] = useState<string>(currentRole);
+    const[email, setEmail] = useState<string>(currentMail);
+
+    const assignRole = (setData:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLSelectElement>) => {
+        if(e.target.value.toString().trim()){
+            setData(e.target.value.toString());
+        }
+    }
+
+    const assignMail = (setData:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLInputElement>) => {
+        if(e.target.value.toString().trim()){
+            setData(e.target.value.toString());
+        }
+    }
+
+    const handleSubmitRole = async(e:React.FormEvent<HTMLFormElement>) =>{
+        e.preventDefault();
+        setStatus('Loading');
+        switch(role){
+            case 'artiste':
+                setRole('ARTIST');
+                break;
+            case'groupe':
+                setRole('BAND');
+                break;
+            default:('USER');
+        }
+        try{
+            const{error,status} = await modifyProfile(url, {role});
+            if(status === "success"){
+                sessionStorage.setItem('slayerRole', role);
+                window.location.reload();
+            }
+        }catch(error){
+            console.error('modify role error:', error);
+        }
+    }
+
+    const handleSubmitMail = async(e:React.FormEvent<HTMLFormElement>) =>{
+        e.preventDefault();
+        setStatus('Loading');
+        try{
+            const{error,status} = await modifyProfile(url, {email});
+            if(status === "success"){
+                sessionStorage.setItem('slayerEmail', email);
+                window.location.reload();
+            }
+        }catch(error){
+            console.error('modify role error:', error);
+        }
+    }
+
     return (
         <section className="modify-profile-form" >
             <h2>Je suis</h2>
             <div className="modify-profile-edit-info-container">
                 <button className="edit-button" onClick={()=>setIsOpenUser(!isOpenUser)}><Edit /></button>
                 {isOpenUser 
-                ? <form action="" method="POST">
+                ? <form action="" method="POST" onSubmit={handleSubmitRole}>
                     <div className="modal-modify-profile-fieldset">
                         <label htmlFor="user-role" hidden>Je suis  un-e: </label>
-                        <select name="user-role" id="user-role">
+                        <select name="user-role" id="user-role" onChange={(e)=>{assignRole(setRole, e)}}>
                             <option value="user">utilisateur-ice</option>
                             <option value="artist">artiste</option>
                             <option value="band">groupe</option>
@@ -61,25 +116,21 @@ function ModifyProfileForm(props: WrapperProps) {
                     </div>
                     <button type="submit" className="modal-modify-profile-submit-button">Modifier</button>
                 </form>
-                :<p>{role}</p>}
+                :<p>{currentRole}</p>}
             </div>
             <h2>Mes informations</h2>
             <p>Adresse mail :</p>
             <div className="modify-profile-edit-info-container">
                 <button className="edit-button" onClick={()=>setIsOpenEmail(!isOpenEmail)}><Edit /></button>
                 {isOpenEmail
-                ?<form action="" method="POST">
-                    <div className={`modal-modify-profile-fieldset`}>
-                        <label htmlFor="current-password" >Mot de passe actuel : </label>
-                        <input type="password" name="current-password" id="current-password" onChange={(e) => assignPasswords(setCurrentPasswordForMail, e)} required />
-                    </div>
+                ?<form action="" method="POST" onSubmit={handleSubmitMail}>
                     <div className="modal-modify-profile-fieldset">
                         <label htmlFor="email" >Modifier mon email : </label>
-                        <input type="email" name="email" id="email" value={mail} required />
+                        <input type="email" name="email" id="email" placeholder={currentMail} onChange={(e)=>assignMail(setEmail,e)} required />
                     </div>
                     <button type="submit" className="modal-modify-profile-submit-button">Modifier</button>
                 </form>
-                :<p>{mail}</p>
+                :<p>{currentMail}</p>
                 }
             </div>
             <p className="password">Mot de passe :</p>
