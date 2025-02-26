@@ -28,6 +28,11 @@ interface dataToSendModify{
     // }
 }
 
+interface dataToSendModifyPassword{
+    oldPassword:string
+    newPassword:string
+}
+
 export const logout = async() =>{
     await fetch (`${config.API_URL}/v1/auth/tokenRotation/logout`, {
         method: 'GET',
@@ -138,6 +143,39 @@ export const modifyProfile = async(url:string, dataToSend:dataToSendModify) => {
             body:JSON.stringify(dataToSend)
         });
 
+        if(!response.ok){
+            console.log(response);
+            throw new Error('Network response was not ok');
+        }
+        return {error:null, status:'success'};
+    }catch(error){
+        return{error:error, status:'error'};
+    }
+}
+
+export const modifyPassword = async(url:string, dataToSend:dataToSendModifyPassword) => {
+    let accessToken = Cookies.get('accessToken');
+    let refreshToken = Cookies.get('refreshToken');
+
+    if(isTokenExpired(accessToken)){
+        accessToken = await refreshAccessToken();
+    }
+    if (!accessToken) {
+        throw new Error("Access token is undefined");
+    }
+    if(!refreshToken){
+        throw new Error('Refresh token is undefined');
+    }
+
+    try{
+        const response = await fetch(url, {
+            method:"PUT",
+            headers:{
+                'Content-type':'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            },
+            body:JSON.stringify(dataToSend)
+        });
         if(!response.ok){
             console.log(response);
             throw new Error('Network response was not ok');
