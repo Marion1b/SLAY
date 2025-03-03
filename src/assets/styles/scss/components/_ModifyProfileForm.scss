@@ -39,6 +39,24 @@
                 @include mix.button();
                 margin-top: 15px;
             }
+            .last-password-fieldset-no-same::after{
+                @include mix.password-incorrect("last-password-no-same");
+            }
+            .password-fieldset-incorrect::after{
+                @include mix.password-incorrect("password-incorrect");
+            }
+            .last-password-fieldset-no-different::after{
+                @include mix.password-incorrect("last-password-new-password-same");
+            }
+            .password-fieldset-no-same::after{
+                @include mix.password-incorrect("password-no-same");
+            }
+            .input-last-password-no-same,
+            .input-password-incorrect,
+            .input-last-password-no-different,
+            .input-password-no-same{
+                @include mix.style-error-password;
+            }
         }
         .edit-button{
             background-color: transparent;

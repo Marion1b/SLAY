@@ -2,8 +2,10 @@ import "../assets/styles/scss/components/_ModifyProfileInfos.scss"
 import ProfileBiography from "../components/ProfileBiography";
 import Edit from "../assets/images/iconsSVG/Edit.svg?react";
 import PinPoint from "../assets/images/iconsSVG/PinPoint.svg?react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import profileImage from "../assets/images/default/profileImage.jpg";
+import { modifyProfile } from "../api/fetchUtils";
+import config from '../../config.ts';
 
 interface WrapperProps {
     name: string|null;
@@ -15,22 +17,56 @@ interface WrapperProps {
 
 function ModifyProfileInfos(props: WrapperProps) {
     const [isOpenUserInfos, setIsOpenUserInfos] = useState<boolean>(false);
-    let avatar: string = profileImage;
+    let currentAvatar: string = profileImage;
     let username : string = "username";
-    let pronouns : string = "N/A"
+    let currentPronouns : string = "N/A";
+
     if(typeof props.avatar === "string" && props.avatar !== "null"){
-        avatar= props.avatar;
+        currentAvatar= props.avatar;
     }
     if(typeof props.name === "string" && props.name!== "null"){
         username = props.name;
     }
     if(typeof props.pronouns === "string" && props.pronouns!=="null"){
-        pronouns = props.pronouns;
+        currentPronouns = props.pronouns;
     }
+
+    const url = `${config.API_URL}/v1/auth/modifyProfile`;
+    const[status, setStatus] = useState<string|null>(null);
+    const[avatar, setAvatar] = useState<string>(currentAvatar);
+    const[pseudo, setPseudo] = useState<string>(username);
+    const[pronounsForm, setPronounsForm] = useState<string>(currentPronouns);
+
+    const assignModifyData = (setData:React.Dispatch<React.SetStateAction<string>>,e : React.ChangeEvent<HTMLInputElement>) => {
+        if(e.target.value.toString().trim()){
+            setData(e.target.value.toString());
+        }
+    }
+
+    const handleSubmit = async(e:React.FormEvent<HTMLFormElement>) =>{
+        e.preventDefault();
+        setStatus('Loading');
+        let pronouns = pronounsForm;
+        if(pronouns === "N/A"){
+            pronouns="null";
+        }
+        try{
+            const{error, status} = await modifyProfile(url, {pseudo, avatar, pronouns});
+            if(status === "success"){
+                sessionStorage.setItem('slayerPseudo', pseudo);
+                sessionStorage.setItem('slayerPronouns', pronouns);
+                sessionStorage.setItem('slayerAvatar', avatar);
+                window.location.reload();
+            }
+        }catch(error){
+            console.error('modify error:', error);
+        }
+    }
+
     if(!isOpenUserInfos){
         return (
             <section className="modify-profile-infos">
-                <img src={avatar} alt="Photo de profil" />
+                <img src={currentAvatar} alt="Photo de profil" />
                     <div className="modify-profile-edit-info-container">
                         <p className="profile-name">{props.name} {props.pronouns!=="null" && `(${props.pronouns})`}</p>
                         <div className="modify-profile-location-container">
@@ -46,21 +82,21 @@ function ModifyProfileInfos(props: WrapperProps) {
     }else{
         return (
             <section className="modify-profile-infos">
-                <form action="" method="POST">
+                <form action="" method="PUT" onSubmit={handleSubmit}>
                     <div className="modal-modify-profile-fieldset modify-profile-infos-image">
-                        <img src={avatar} alt="Photo de profil" />
+                        <img src={currentAvatar} alt="Photo de profil" />
                         <br />
                         <label htmlFor="user-image">Modifier mon image de profil</label>
-                        <input type="file" id="user-image" className="input-user-image" name="user-image" accept="image/png, image/jpeg" />
+                        <input type="file" id="user-image" className="input-user-image" name="user-image" accept="image/png, image/jpeg" onChange={(e)=>assignModifyData(setAvatar,e)} />
                     </div>
                     <div className="modify-profile-edit-info-container">
                         <div className="modal-modify-profile-fieldset">
                             <label htmlFor="user-pseudo">Modifier mon pseudo</label>
-                            <input type="text" name="user-pseudo" id="user-pseudo" value={username} />
+                            <input type="text" name="user-pseudo" id="user-pseudo" placeholder={username} onChange={(e)=>{assignModifyData(setPseudo,e)}} />
                         </div>
                         <div className="modal-modify-profile-fieldset">
                             <label htmlFor="user-pronouns">Modifier mes pronoms</label>
-                            <input type="text" name="user-pronouns" id="user-pronouns" value={pronouns} />
+                            <input type="text" name="user-pronouns" id="user-pronouns" placeholder={currentPronouns} onChange={(e)=>{assignModifyData(setPronounsForm,e)}} />
                         </div>
                         <div className="modal-modify-profile-fieldset">
                             <label htmlFor="user-location">Modifier ma localisation</label>

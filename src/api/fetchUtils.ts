@@ -13,6 +13,26 @@ interface dataToSendRegister {
     password: string
 }
 
+interface dataToSendModify{
+    email?:string
+    pseudo?:string | null
+    avatar?:string | null
+    role?:string | null
+    pronouns?:string | null
+    // isSearching:boolean
+    // geolocation:{
+    //     id:number
+    //     latitude:number
+    //     longitude:number
+    //     city: string
+    // }
+}
+
+interface dataToSendModifyPassword{
+    oldPassword:string
+    newPassword:string
+}
+
 export const logout = async() =>{
     await fetch (`${config.API_URL}/v1/auth/tokenRotation/logout`, {
         method: 'GET',
@@ -30,6 +50,8 @@ export const logout = async() =>{
 }
 
 export const refreshAccessToken = async() =>{
+    console.log("aaaaaaaaaaaaaaaaaaaaa");
+
     const expirationAT = new Date(new Date().getTime()+15*60*1000);
     const refreshToken = Cookies.get('refreshToken');
     const response = await fetch(`${config.API_URL}/v1/auth/tokenRotation`,{
@@ -45,7 +67,7 @@ export const refreshAccessToken = async() =>{
         Cookies.set('accessToken', data.accessToken, {SameSite: 'strict', secure:true, expires: expirationAT});
         if(data.refreshToken){
             Cookies.set('refreshToken', data.refreshToken, {SameSite: 'strict', secure:true, expires:7});
-        }
+        } 
         return data.acessToken
     } else{
         console.log("erreur lors de refresh access token");
@@ -54,11 +76,7 @@ export const refreshAccessToken = async() =>{
 }
 
 export const login = async (url:string, dataToSend: dataToSendLogin)=>{
-    let accessToken = Cookies.get('accessToken');
-
-    if (isTokenExpired(accessToken)) {
-        accessToken = await refreshAccessToken();
-    }
+    
     try{
         const response = await fetch(url, {
             method: "POST",
@@ -80,11 +98,6 @@ export const login = async (url:string, dataToSend: dataToSendLogin)=>{
 }
 
 export const register = async (url:string, dataToSend: dataToSendRegister)=>{
-    let accessToken = Cookies.get('accessToken');
-
-    if (isTokenExpired(accessToken)) {
-        accessToken = await refreshAccessToken();
-    }
     
     try{
         const response = await fetch(url, {
@@ -103,5 +116,72 @@ export const register = async (url:string, dataToSend: dataToSendRegister)=>{
         return{data, error:null, status:'success'};
     }catch(error){
         return{data:null, errorFetch: error, status:"error"};
+    }
+}
+
+export const modifyProfile = async(url:string, dataToSend:dataToSendModify) => {
+    let accessToken = Cookies.get('accessToken');
+    let refreshToken = Cookies.get('refreshToken');
+
+    if(isTokenExpired(accessToken)){
+        accessToken = await refreshAccessToken();
+    }
+    if (!accessToken) {
+        throw new Error("Access token is undefined");
+    }
+    if(!refreshToken){
+        throw new Error('Refresh token is undefined');
+    }
+    
+    try{
+        const response = await fetch(url, {
+            method:"PUT",
+            headers:{
+                'Content-type':'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            },
+            body:JSON.stringify(dataToSend)
+        });
+
+        if(!response.ok){
+            console.log(response);
+            throw new Error('Network response was not ok');
+        }
+        return {error:null, status:'success'};
+    }catch(error){
+        return{error:error, status:'error'};
+    }
+}
+
+export const modifyPassword = async(url:string, dataToSend:dataToSendModifyPassword) => {
+    let accessToken = Cookies.get('accessToken');
+    let refreshToken = Cookies.get('refreshToken');
+
+    if(isTokenExpired(accessToken)){
+        accessToken = await refreshAccessToken();
+    }
+    if (!accessToken) {
+        throw new Error("Access token is undefined");
+    }
+    if(!refreshToken){
+        throw new Error('Refresh token is undefined');
+    }
+
+    try{
+        const response = await fetch(url, {
+            method:"PUT",
+            headers:{
+                'Content-type':'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            },
+            body:JSON.stringify(dataToSend)
+        });
+        if(!response.ok){
+            console.log(response);
+            throw new Error('Network response was not ok');
+        }
+        return {error:null, status:'success'};
+    }catch(error){
+        return{error:error, status:'error'};
     }
 }
