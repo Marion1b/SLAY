@@ -139,7 +139,6 @@
 @mixin register-login-fieldset(){
     @include flex(column, flex-start, flex-start);
     margin-bottom: 25px;
-    max-width: 160px;
     line-height: 15px;
     label{
         margin-bottom: 8px;
