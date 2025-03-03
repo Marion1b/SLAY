@@ -1,0 +1,12 @@
+@use "../_vars.scss" as var;
+    @use '../_mixins.scss' as mix;
+
+.logout-button{
+    @include mix.register-login-button;
+    margin: 20px 0;
+    background-color: var.$red;
+    &:hover{
+        background-color: var.$red;
+        text-decoration: underline;
+    }
+}

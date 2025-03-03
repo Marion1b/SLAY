@@ -1,8 +1,9 @@
 import "../assets/styles/scss/components/_ModifyProfileForm.scss";
+import LogoutButton from "./LogoutButton.tsx";
 import Edit from "../assets/images/iconsSVG/Edit.svg?react";
 import {isSamePassword, isPasswordCorrect} from "../utils/authUtils.ts";
 import { useState } from "react";
-import { logout, modifyPassword, modifyProfile } from "../api/fetchUtils.ts";
+import { modifyPassword, modifyProfile } from "../api/fetchUtils.ts";
 import config from '../../config.ts';
 
 interface WrapperProps{
@@ -185,7 +186,7 @@ function ModifyProfileForm(props: WrapperProps) {
                 : <p>******************</p>
                 }
             </div>
-            <button className="logout-button" onClick={logout}>Se déconnecter</button>
+            <LogoutButton />
             <h2>Mes tags musicaux</h2>
         </section>
     )
