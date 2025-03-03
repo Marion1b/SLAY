@@ -17,7 +17,7 @@ function Profile() {
             </div>
             <div className="profile-section-right">
                 <NumbersInfos reposts={4500} slayers={3200} suivis={439} />
-                <ProfileBiography className="profile-biography-profile"/>
+                <ProfileBiography className="profile-biography-profile" content="je suis Antoine Daniel le goat des bisous"/>
                 <Link to="/modifier-mon-profil">
                     <ModifyProfileButton />
                 </Link>

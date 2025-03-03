@@ -11,7 +11,54 @@
         @include mix.text-mobile("text-1", var.$semi-bold, var.$black);
     }
     .modify-profile-edit-info-container {
-        @include mix.flex(row, flex-start, center);
+        @include mix.flex(row, flex-start, flex-start);
+        form{
+            label{
+                @include mix.text-mobile("text-2");
+            }
+            input, select{
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid var.$black;
+                font-family: var.$hind;
+                @include mix.text-mobile('text-3', var.$regular, var.$black);
+                cursor: pointer;
+                &:focus{
+                    outline: none;
+                    border-bottom: 2px solid var.$black;
+                }
+            }
+            .modal-modify-profile-fieldset{
+                @include mix.flex(column, flex-start, flex-start);
+                margin-top: 10px;
+            }
+            .modal-modify-profile-fieldset:not(:first-child){
+                margin-top: 20px;
+            }
+            .modal-modify-profile-submit-button{
+                @include mix.button();
+                font-weight: var.$regular;
+                margin-top: 25px;
+            }
+            .last-password-fieldset-no-same::after{
+                @include mix.password-incorrect("last-password-no-same");
+            }
+            .password-fieldset-incorrect::after{
+                @include mix.password-incorrect("password-incorrect");
+            }
+            .last-password-fieldset-no-different::after{
+                @include mix.password-incorrect("last-password-new-password-same");
+            }
+            .password-fieldset-no-same::after{
+                @include mix.password-incorrect("password-no-same");
+            }
+            .input-last-password-no-same,
+            .input-password-incorrect,
+            .input-last-password-no-different,
+            .input-password-no-same{
+                @include mix.style-error-password;
+            }
+        }
         .edit-button{
             background-color: transparent;
             border: none;
@@ -48,6 +95,14 @@
             p {
                 @include mix.text-desktop("text-1", var.$regular, var.$black);
                 margin-top: .7rem;
+            }
+            form{
+                input,select{
+                    @include mix.text-desktop('text-3', var.$regular, var.$black);
+                }
+                .modal-modify-profile-submit-button{
+                    font-weight: var.$regular;
+                }
             }
         }
     }

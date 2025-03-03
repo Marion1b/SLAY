@@ -1,4 +1,5 @@
 import "../assets/styles/scss/components/_ProfilePictureAndInfo.scss";
+import profileImage from "../assets/images/default/profileImage.jpg";
 
 interface WrapperProps{
     name: string | null;
@@ -9,7 +10,7 @@ interface WrapperProps{
 }
 
 function ProfilePictureAndInfo(props: WrapperProps) {
-    let avatar: string = "https://cdn.discordapp.com/attachments/1308349267668242434/1308350888544567348/sladzdadadady.jpg?ex=67a5c6b7&is=67a47537&hm=11aa7792f10c5280089177357a35b10a247a3d2bf68b074f40e34464edd7ce9f&";
+    let avatar: string = profileImage;
     if(typeof props.avatar === "string" && props.avatar !== "null"){
         avatar= props.avatar;
     }

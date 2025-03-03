@@ -159,6 +159,7 @@
 @mixin register-login-button(){
     padding: 5px 10px;
     width: 160px;
+    @include text-mobile("text-2", var.$semi-bold, var.$black);
     background-color: var.$atomic-tangerine;
     border: 1px solid var.$black;
     border-radius: var.$border-radius-sm;
@@ -207,8 +208,7 @@
     background: linear-gradient(to right, var.$atomic-tangerine 50%, var.$xanthous 50%);
     background-size: 200%;
     background-position: left;
-    @include text-mobile(text-2);
-    font-weight: 600; //à mettre dans la mixin text.mobile 
+    @include text-mobile("text-2", var.$semi-bold, var.$black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -222,8 +222,8 @@
         width: 15px;
         height: 15px;
     }
-    @media #{var.$larger} {
-        @include text-desktop(text-2); //ajouter font-weight
+    @media #{var.$medium-large} {
+        @include text-desktop("text-2", var.$semi-bold, var.$black);
         svg{
             width: 18px;
             height: 18px;
