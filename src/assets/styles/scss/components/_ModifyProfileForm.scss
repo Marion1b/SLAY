@@ -37,7 +37,8 @@
             }
             .modal-modify-profile-submit-button{
                 @include mix.button();
-                margin-top: 15px;
+                font-weight: var.$regular;
+                margin-top: 25px;
             }
             .last-password-fieldset-no-same::after{
                 @include mix.password-incorrect("last-password-no-same");
@@ -98,6 +99,9 @@
             form{
                 input,select{
                     @include mix.text-desktop('text-3', var.$regular, var.$black);
+                }
+                .modal-modify-profile-submit-button{
+                    font-weight: var.$regular;
                 }
             }
         }

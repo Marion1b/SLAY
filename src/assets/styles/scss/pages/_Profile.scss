@@ -12,4 +12,9 @@
         min-height: 120px;
         @include mix.flex(column, space-between, flex-start);
     }
+    @media #{var.$medium-large}{
+        max-width: 800px;
+        justify-content: flex-start;
+        margin: auto;
+    }
 }
