@@ -5,7 +5,7 @@ import PinPoint from "../assets/images/iconsSVG/PinPoint.svg?react";
 import { useState, useEffect } from "react";
 import profileImage from "../assets/images/default/profileImage.jpg";
 import { modifyProfile } from "../api/fetchUtils";
-import config from '../../config.ts';
+import config from '../../configProd.ts';
 
 interface WrapperProps {
     name: string|null;
