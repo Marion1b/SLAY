@@ -1,6 +1,6 @@
 import { isTokenExpired } from "./tokenUtils";
 import Cookies from "js-cookie";
-import config from '../../config.ts';
+import config from '../../configProd.ts';
 
 interface dataToSendLogin {
     email: string,
