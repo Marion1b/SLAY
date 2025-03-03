@@ -3,5 +3,8 @@
 
 .modify-profile-button{
     @include mix.button();
-    font-weight: 400;
+    font-weight: var.$regular;
+    @media #{var.$medium-large}{
+        font-weight: var.$regular;
+    }
 }

@@ -1,65 +1,67 @@
-@use "../_vars.scss" as var;
-@use '../_mixins.scss' as mix;
+// @use "../_vars.scss" as var;
+// @use '../_mixins.scss' as mix;
 
-.modal-modify-profile{
-    background-color: #ffe4d594;
-    z-index: 5;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    backdrop-filter: blur(3px);
-    @include mix.flex(row, center, flex-start);
-    form{
-        @include mix.register-login-form;
-    }
-    &-fieldset{
-        @include mix.register-login-fieldset;
-    }
-    .input-user-image{
-        max-width: 160px;
-        overflow: hidden;
-    }
-    .last-password-fieldset-no-same::after{
-        @include mix.password-incorrect("last-password-no-same");
-    }
-    .password-fieldset-incorrect::after{
-        @include mix.password-incorrect("password-incorrect");
-    }
-    .last-password-fieldset-no-different::after{
-        @include mix.password-incorrect("last-password-new-password-same");
-    }
-    .password-fieldset-no-same::after{
-        @include mix.password-incorrect("password-no-same");
-    }
-    .input-last-password-no-same,
-    .input-password-incorrect,
-    .input-last-password-no-different,
-    .input-password-no-same{
-        @include mix.style-error-password;
-    }
-    &-submit-button{
-        @include mix.register-login-button;
-    }
-    &-close-button{
-        @include mix.flex(row, center, center);
-        cursor: pointer;
-        align-self: flex-end;
-        transform: translate(20px, -20px);
-        background-color: var.$atomic-tangerine;
-        border-radius: var.$border-radius-sm;
-        border: var.$black 1px solid;
-        transition: all 200ms ease-in;
-        svg{
-            width: 15px;
-            height: 15px;
-        }
-        &:hover{
-            box-shadow: var.$box-shadow-sm;
-            transform: translate(21px, -19px);
-            background-color: transparent;
-        }
-    }
-}
+// .modal-modify-profile{
+//     background-color: #ffe4d594;
+//     z-index: 5;
+//     height: 100vh;
+//     width: 100%;
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     backdrop-filter: blur(3px);
+//     @include mix.flex(row, center, flex-start);
+//     form{
+//         @include mix.register-login-form;
+//     }
+//     &-fieldset{
+//         @include mix.register-login-fieldset;
+//     }
+//     .input-user-image{
+//         max-width: 160px;
+//         overflow: hidden;
+//     }
+//     .last-password-fieldset-no-same::after{
+//         @include mix.password-incorrect("last-password-no-same");
+//     }
+//     .password-fieldset-incorrect::after{
+//         @include mix.password-incorrect("password-incorrect");
+//     }
+//     .last-password-fieldset-no-different::after{
+//         @include mix.password-incorrect("last-password-new-password-same");
+//     }
+//     .password-fieldset-no-same::after{
+//         @include mix.password-incorrect("password-no-same");
+//     }
+//     .input-last-password-no-same,
+//     .input-password-incorrect,
+//     .input-last-password-no-different,
+//     .input-password-no-same{
+//         @include mix.style-error-password;
+//     }
+//     &-submit-button{
+//         @include mix.register-login-button();
+//         font-weight: var.$regular;
+//         color: red;
+//     }
+//     &-close-button{
+//         @include mix.flex(row, center, center);
+//         cursor: pointer;
+//         align-self: flex-end;
+//         transform: translate(20px, -20px);
+//         background-color: var.$atomic-tangerine;
+//         border-radius: var.$border-radius-sm;
+//         border: var.$black 1px solid;
+//         transition: all 200ms ease-in;
+//         svg{
+//             width: 15px;
+//             height: 15px;
+//         }
+//         &:hover{
+//             box-shadow: var.$box-shadow-sm;
+//             transform: translate(21px, -19px);
+//             background-color: transparent;
+//         }
+//     }
+// }

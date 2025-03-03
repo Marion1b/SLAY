@@ -48,6 +48,7 @@
         }
         .modal-modify-profile-submit-button{
             @include mix.button();
+            font-weight: var.$regular;
         }
         .edit-button{
             background-color: transparent;
@@ -156,6 +157,9 @@
             }
             .modify-profile-edit-info-container{
                 width: 40%;
+            }
+            .modal-modify-profile-submit-button{
+                font-weight: var.$regular;
             }
             .modal-modify-profile-fieldset{
                 label{
