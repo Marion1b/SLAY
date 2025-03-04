@@ -1,12 +1,14 @@
 # SLAY
 
 ## What is SLAY ?
+
 SLAY means Sound Lovers Assemble and Yell.  
 It's a project to bring musicians together and allow them to share their creations.
 
 ## How to install locally ?
 
-prerequisites : 
+prerequisites :
+
 - Node.js and npm
 - Git
 
