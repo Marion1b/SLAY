@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "test": "jest",
     "start": "vite preview --port $PORT"
   },
   "dependencies": {

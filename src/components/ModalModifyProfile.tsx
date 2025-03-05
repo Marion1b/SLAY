@@ -1,7 +1,7 @@
 import {isSamePassword, isPasswordCorrect} from "../utils/authUtils.ts";
 import {useState} from 'react';
 import "../assets/styles/scss/components/_ModalModifyProfile.scss";
-import X from "../assets/images/iconsSVG/X.svg?react";
+import X from "../assets/images/iconsSVG/X.svg";
 
 interface WrapperProps{
     name: string;

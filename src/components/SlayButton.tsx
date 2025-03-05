@@ -1,5 +1,5 @@
-import UserPlus from "../assets/images/iconsSVG/UserPlus.svg?react";
-import UserRemove from "../assets/images/iconsSVG/UserRemove.svg?react";
+import UserPlus from "../assets/images/iconsSVG/UserPlus.svg";
+import UserRemove from "../assets/images/iconsSVG/UserRemove.svg";
 import "../assets/styles/scss/components/_SlayButton.scss";
 import { useState, useEffect } from "react";
 

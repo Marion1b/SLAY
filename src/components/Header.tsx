@@ -1,12 +1,12 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 import "../assets/styles/scss/components/_Header.scss";
-import HomeIcon from "../assets/images/iconsSVG/Home.svg?react";
-import RadarIcon from "../assets/images/iconsSVG/Radar.svg?react";
-import SearchIcon from "../assets/images/iconsSVG/Search.svg?react";
-import SlayderIcon from "../assets/images/iconsSVG/Add.svg?react";
-import NotificationIcon from "../assets/images/iconsSVG/Notif.svg?react";
-import ProfileIcon from "../assets/images/iconsSVG/Profile.svg?react";
+import HomeIcon from "../assets/images/iconsSVG/Home.svg";
+import RadarIcon from "../assets/images/iconsSVG/Radar.svg";
+import SearchIcon from "../assets/images/iconsSVG/Search.svg";
+import SlayderIcon from "../assets/images/iconsSVG/Add.svg";
+import NotificationIcon from "../assets/images/iconsSVG/Notif.svg";
+import ProfileIcon from "../assets/images/iconsSVG/Profile.svg";
 import { Link } from 'react-router-dom';
 
 function Header() {
