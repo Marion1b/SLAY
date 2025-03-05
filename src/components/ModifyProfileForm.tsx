@@ -4,7 +4,7 @@ import Edit from "../assets/images/iconsSVG/Edit.svg?react";
 import {isSamePassword, isPasswordCorrect} from "../utils/authUtils.ts";
 import { useState } from "react";
 import { modifyPassword, modifyProfile } from "../api/fetchUtils.ts";
-import config from '../../configProd.ts';
+import config from '../../config.ts';
 
 interface WrapperProps{
     role: string|null;
