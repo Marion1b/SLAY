@@ -1,6 +1,6 @@
 import "../assets/styles/scss/components/_ModifyProfileForm.scss";
 import LogoutButton from "./LogoutButton.tsx";
-import Edit from "../assets/images/iconsSVG/Edit.svg?react";
+import Edit from "../assets/images/iconsSVG/Edit.svg";
 import {isSamePassword, isPasswordCorrect} from "../utils/authUtils.ts";
 import { useState } from "react";
 import { modifyPassword, modifyProfile } from "../api/fetchUtils.ts";
