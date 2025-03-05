@@ -1,9 +1,11 @@
-import {render, screen} from "@testing-library/react";
+import {render, cleanup} from "@testing-library/react";
 import App from "../pages/App";
 
+afterEach(cleanup);
+
 describe("App", ()=> {
-    test("renders heading", async()=>{
-        render(<App />);
-        expect(screen.getByRole('heading', {name: "SLAY"})).toBeInTheDocument();
+    test("should take a snapshot", ()=>{
+        const {asFragment} = render(<App />);
+        expect(asFragment()).toMatchSnapshot();
     });
 });

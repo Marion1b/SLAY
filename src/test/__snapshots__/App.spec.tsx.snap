@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should take a snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="home-page"
+  >
+    <section
+      class="landing-page"
+    >
+      <h1>
+        SLAY
+      </h1>
+      <p
+        class="subtitle"
+      >
+        Partagez vos créations musicales, découvrez de nouveaux sons et rencontrez d'autres artistes.
+      </p>
+      <div>
+        <p>
+          Découvrir
+        </p>
+        <svg
+          data-file-name="SvgChevronDown"
+        />
+      </div>
+    </section>
+  </main>
+</DocumentFragment>
+`;

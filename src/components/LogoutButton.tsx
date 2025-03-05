@@ -3,7 +3,7 @@ import {logout} from "../api/fetchUtils.ts";
 
 const LogoutButton = () => {
     return(
-        <button className="logout-button" onClick={logout}>Se déconnecter</button>
+        <button className="logout-button" onClick={logout} data-testid="logout-button">Se déconnecter</button>
     )
 }
 
