@@ -1,5 +1,5 @@
 import "../assets/styles/scss/components/_LandingPage.scss";
-import ChevronDown from "../assets/images/iconsSVG/ChevronDown.svg?react";
+import ChevronDown from "../assets/images/iconsSVG/ChevronDown.svg";
 
 function LandingPage() {
     return (
